@@ -1,0 +1,31 @@
+@import 'c/lcStyles';
+
+.card {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.card__online { position: absolute; top: 0.75rem; right: 0.75rem; }
+.card__avatar-wrap { position: relative; }
+.card__flag {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    background: #fff;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    box-shadow: 0 0 0 1px var(--lc-line);
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 0.15rem 0.3rem;
+    color: var(--lc-brand);
+}
+.card__name { margin: 0.75rem 0 0.2rem; font-size: 1.05rem; }
+.card__sub { margin: 0; }
+.card__tags { justify-content: center; margin: 0.75rem 0; }
+.card__actions { margin-top: auto; width: 100%; display: grid; gap: 0.4rem; }
+.card_preview .card__name { font-size: 1.4rem; color: var(--lc-brand); }
+.card__bio { text-align: left; line-height: 1.55; font-size: 0.92rem; color: #374151; white-space: pre-line; }

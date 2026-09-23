@@ -1,0 +1,45 @@
+<template>
+    <section class={layoutClass}>
+        <div class="amb__list">
+            <header class="amb__head">
+                <h1 class="amb__title">My inbox</h1>
+                <p class="amb__subtitle">{displayName} · Student ambassador</p>
+                <lightning-input type="toggle" label="Available for new chats" checked={available} message-toggle-active="On" message-toggle-inactive="Off" onchange={handleAvailability}></lightning-input>
+            </header>
+            <div class="amb__kpis">
+                <div class="lc-card amb__kpi"><strong>{stats.awaitingReply}</strong><span>Awaiting reply</span></div>
+                <div class="lc-card amb__kpi"><strong>{avgReply}</strong><span>My avg. first reply</span></div>
+                <div class="lc-card amb__kpi amb__kpi_wide"><span>This month: <strong>{hoursLabel}</strong></span></div>
+            </div>
+            <template lwc:if={error}>
+                <p class="lc-error" role="alert">{error}</p>
+            </template>
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading inbox" size="small"></lightning-spinner>
+            </template>
+            <c-lc-chat-inbox
+                heading="Conversations"
+                conversations={conversations}
+                selected-id={selectedId}
+                viewer-role="ambassador"
+                empty-text="No questions yet. New chats will appear here."
+                onselect={handleSelect}
+            ></c-lc-chat-inbox>
+            <div class="amb__links">
+                <a class="lc-btn lc-btn_small" href={profileUrl}>Edit my profile</a>
+                <a class="lc-btn lc-btn_small" href={guidelinesUrl}>Ambassador guidelines</a>
+            </div>
+        </div>
+        <div class="amb__thread">
+            <template lwc:if={selectedId}>
+                <c-lc-chat-thread conversation-id={selectedId} show-back onconversationchange={refresh} onback={handleBack}></c-lc-chat-thread>
+            </template>
+            <template lwc:else>
+                <div class="amb__empty">
+                    <h2>Choose a conversation</h2>
+                    <p class="lc-muted">Oldest questions are at the top of the waiting list. Remember: never share personal contact details, and refer questions about applications, offers, fees or visas to the admissions team.</p>
+                </div>
+            </template>
+        </div>
+    </section>
+</template>

@@ -1,0 +1,54 @@
+<template>
+    <section class={layoutClass}>
+        <template lwc:if={error}>
+            <p class="lc-error ws__error" role="alert">{error}</p>
+        </template>
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading your chats" size="small"></lightning-spinner>
+        </template>
+
+        <div class="ws__list">
+            <c-lc-chat-inbox
+                heading="My chats"
+                conversations={conversations}
+                selected-id={selectedId}
+                find-url={directoryUrl}
+                viewer-role="prospect"
+                onselect={handleSelect}
+            ></c-lc-chat-inbox>
+        </div>
+
+        <div class="ws__thread">
+            <template lwc:if={selectedId}>
+                <c-lc-chat-thread
+                    conversation-id={selectedId}
+                    show-back
+                    monitor-notice={monitorNotice}
+                    onconversationchange={refreshList}
+                    onback={handleBack}
+                ></c-lc-chat-thread>
+            </template>
+            <template lwc:else>
+                <div class="ws__empty">
+                    <h2>Pick a chat</h2>
+                    <p class="lc-muted">Choose a conversation on the left, or find an ambassador to ask your first question.</p>
+                    <a class="lc-btn lc-btn_primary" href={directoryUrl}>Find an ambassador</a>
+                </div>
+            </template>
+        </div>
+
+        <div class="ws__side">
+            <c-lc-chat-side-panel
+                link1-label={link1Label}
+                link1-url={link1Url}
+                link2-label={link2Label}
+                link2-url={link2Url}
+                link3-label={link3Label}
+                link3-url={link3Url}
+                onaskadmissions={openAsk}
+            ></c-lc-chat-side-panel>
+        </div>
+
+        <c-lc-ask-admissions open={showAsk} mode="ask" onsubmit={submitAsk} oncancel={closeAsk}></c-lc-ask-admissions>
+    </section>
+</template>

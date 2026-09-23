@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospect_Age_Band__c</fullName>
+    <description>Age band of the prospect. Visible to staff only.</description>
+    <externalId>false</externalId>
+    <formula>Prospect__r.Account.Age_Band__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Age band of the prospect. Visible to staff only.</inlineHelpText>
+    <label>Prospect Age Band</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

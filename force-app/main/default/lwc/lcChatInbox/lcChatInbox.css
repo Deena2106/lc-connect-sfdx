@@ -1,0 +1,35 @@
+@import 'c/lcStyles';
+
+.inbox { background: #fafbfc; height: 100%; display: flex; flex-direction: column; }
+.inbox__title { display: flex; justify-content: space-between; align-items: baseline; font-size: 1rem; margin: 0; padding: 1rem 1rem 0.6rem; color: var(--lc-brand); }
+.inbox__empty { padding: 0 1rem; }
+.inbox__list { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; }
+.inbox__item {
+    width: 100%;
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-top: 1px solid #eef0f3;
+    border-left: 3px solid transparent;
+    background: transparent;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+.inbox__item:hover { background: #fff; }
+.inbox__item_on { background: #fff; border-left-color: var(--lc-accent); }
+.inbox__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.inbox__row { display: flex; justify-content: space-between; gap: 0.5rem; }
+.inbox__name { font-weight: 600; }
+.inbox__time { font-size: 0.72rem; color: #9aa3af; }
+.inbox__sub { font-size: 0.72rem; color: var(--lc-muted); }
+.inbox__preview { font-size: 0.8rem; color: var(--lc-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inbox__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lc-accent); flex: none; }
+.inbox__badge { font-size: 0.7rem; font-weight: 700; border-radius: 999px; padding: 0.1rem 0.5rem; flex: none; }
+.inbox__badge_wait { background: #fef3c7; color: #92400e; }
+.inbox__badge_late { background: #fee2e2; color: #991b1b; }
+.inbox__badge_done { background: #dcfce7; color: #166534; }
+.inbox__footer { padding: 1rem; }

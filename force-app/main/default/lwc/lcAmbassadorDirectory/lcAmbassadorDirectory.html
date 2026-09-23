@@ -1,0 +1,65 @@
+<template>
+    <section class="dir">
+        <header class="dir__hero">
+            <h1 class="dir__title">{heading}</h1>
+            <p class="dir__intro">{intro}</p>
+        </header>
+
+        <form class="dir__search" onsubmit={handleSearch} role="search">
+            <lightning-input
+                class="dir__search-input"
+                type="search"
+                label="Search ambassadors"
+                variant="label-hidden"
+                placeholder="Search by name, course, interest or language"
+                value={searchTerm}
+                onchange={handleTermChange}
+            ></lightning-input>
+            <button type="submit" class="lc-btn lc-btn_primary">Search</button>
+        </form>
+
+        <div class="dir__filters">
+            <lightning-combobox label="Subject area" name="subject" value={subject} options={subjectOptions} onchange={handleFilter}></lightning-combobox>
+            <lightning-combobox label="Study level" name="studyLevel" value={studyLevel} options={levelOptions} onchange={handleFilter}></lightning-combobox>
+            <lightning-combobox label="Home country or region" name="country" value={country} options={countryOptions} onchange={handleFilter}></lightning-combobox>
+            <lightning-combobox label="Languages spoken" name="language" value={language} options={languageOptions} onchange={handleFilter}></lightning-combobox>
+        </div>
+
+        <div class="dir__stats" aria-live="polite">
+            <span><strong>{total}</strong> ambassadors</span>
+            <span><strong>{onlineCount}</strong> online now</span>
+            <template lwc:if={hasFilters}>
+                <button class="lc-btn lc-btn_link" onclick={clearFilters}>Clear filters</button>
+            </template>
+            <span class="lc-muted dir__note">{disclaimer}</span>
+        </div>
+
+        <template lwc:if={error}>
+            <p class="lc-error">{error}</p>
+        </template>
+
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading ambassadors" size="small"></lightning-spinner>
+        </template>
+
+        <template lwc:if={isEmpty}>
+            <div class="lc-card dir__empty">
+                <p>No ambassadors match your search yet. Try removing a filter.</p>
+            </div>
+        </template>
+
+        <ul class="dir__grid">
+            <template for:each={ambassadors} for:item="amb">
+                <li key={amb.id}>
+                    <c-lc-ambassador-card ambassador={amb} onask={handleAsk}></c-lc-ambassador-card>
+                </li>
+            </template>
+        </ul>
+
+        <template lwc:if={hasMore}>
+            <div class="dir__more">
+                <button class="lc-btn" onclick={loadMore} disabled={isLoading}>Show more ambassadors</button>
+            </div>
+        </template>
+    </section>
+</template>

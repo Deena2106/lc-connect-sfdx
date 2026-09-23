@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Display_Name__c</fullName>
+    <description>First name (or chosen name) shown to the public. Never include a surname.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>First name (or chosen name) shown to the public. Never include a surname.</inlineHelpText>
+    <label>Display Name</label>
+    <length>40</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Origin__c</fullName>
+    <description>Where the conversation was started.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Where the conversation was started.</inlineHelpText>
+    <label>Origin</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Profile</fullName>
+                <default>false</default>
+                <label>Profile</label>
+            </value>
+            <value>
+                <fullName>Directory</fullName>
+                <default>false</default>
+                <label>Directory</label>
+            </value>
+            <value>
+                <fullName>AI assistant</fullName>
+                <default>false</default>
+                <label>AI assistant</label>
+            </value>
+            <value>
+                <fullName>Widget</fullName>
+                <default>false</default>
+                <label>Widget</label>
+            </value>
+            <value>
+                <fullName>Staff</fullName>
+                <default>false</default>
+                <label>Staff</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

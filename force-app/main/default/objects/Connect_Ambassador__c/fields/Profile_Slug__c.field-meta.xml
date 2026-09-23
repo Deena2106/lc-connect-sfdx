@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Profile_Slug__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Short, unique name used in the profile web address, for example ada-o.</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Short, unique name used in the profile web address, for example ada-o.</inlineHelpText>
+    <label>Profile Slug</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

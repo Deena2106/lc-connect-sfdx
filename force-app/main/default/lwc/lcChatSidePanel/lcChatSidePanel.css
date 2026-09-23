@@ -1,0 +1,8 @@
+@import 'c/lcStyles';
+
+.side { padding: 1rem; font-size: 0.85rem; display: grid; gap: 0.6rem; align-content: start; }
+.side__h { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--lc-muted); margin: 0.75rem 0 0; }
+.side__links { list-style: none; padding: 0; margin: 0; }
+.side__links li { border-bottom: 1px solid #f0f1f4; padding: 0.4rem 0; }
+.side__links a { color: var(--lc-brand); font-weight: 600; text-decoration: none; }
+.side__links a:hover { text-decoration: underline; }

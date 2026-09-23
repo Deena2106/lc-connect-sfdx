@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>Connect_Ambassador__c-Connect Ambassador Layout</members>
+		<members>Connect_Conversation__c-Connect Conversation Layout</members>
+		<members>Connect_Flag__c-Connect Flag Layout</members>
+		<members>Connect_Message__c-Connect Message Layout</members>
+		<members>Connect_Time_Log__c-Connect Time Log Layout</members>
+		<name>Layout</name>
+	</types>
+	<version>67.0</version>
+</Package>

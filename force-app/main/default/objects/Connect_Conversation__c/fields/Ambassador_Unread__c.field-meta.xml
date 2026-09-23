@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ambassador_Unread__c</fullName>
+    <description>True when the prospect has sent something the ambassador has not seen.</description>
+    <externalId>false</externalId>
+    <formula>AND(ISPICKVAL(Last_Message_By__c, 'Prospect'), OR(ISBLANK(Ambassador_Last_Read_At__c), Last_Message_At__c &gt; Ambassador_Last_Read_At__c))</formula>
+    <inlineHelpText>True when the prospect has sent something the ambassador has not seen.</inlineHelpText>
+    <label>Ambassador Unread</label>
+    <type>Checkbox</type>
+</CustomField>

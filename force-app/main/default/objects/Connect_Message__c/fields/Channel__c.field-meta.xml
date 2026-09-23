@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Channel__c</fullName>
+    <description>Where the message was sent from.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Where the message was sent from.</inlineHelpText>
+    <label>Channel</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Web</fullName>
+                <default>true</default>
+                <label>Web</label>
+            </value>
+            <value>
+                <fullName>AI assistant</fullName>
+                <default>false</default>
+                <label>AI assistant</label>
+            </value>
+            <value>
+                <fullName>Widget</fullName>
+                <default>false</default>
+                <label>Widget</label>
+            </value>
+            <value>
+                <fullName>Staff console</fullName>
+                <default>false</default>
+                <label>Staff console</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

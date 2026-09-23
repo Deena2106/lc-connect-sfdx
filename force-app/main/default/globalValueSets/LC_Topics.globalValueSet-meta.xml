@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Course content</fullName>
+        <default>false</default>
+        <label>Course content</label>
+    </customValue>
+    <customValue>
+        <fullName>Accommodation</fullName>
+        <default>false</default>
+        <label>Accommodation</label>
+    </customValue>
+    <customValue>
+        <fullName>Social life</fullName>
+        <default>false</default>
+        <label>Social life</label>
+    </customValue>
+    <customValue>
+        <fullName>Money and budgeting</fullName>
+        <default>false</default>
+        <label>Money and budgeting</label>
+    </customValue>
+    <customValue>
+        <fullName>Wellbeing</fullName>
+        <default>false</default>
+        <label>Wellbeing</label>
+    </customValue>
+    <customValue>
+        <fullName>City and travel</fullName>
+        <default>false</default>
+        <label>City and travel</label>
+    </customValue>
+    <customValue>
+        <fullName>Careers</fullName>
+        <default>false</default>
+        <label>Careers</label>
+    </customValue>
+    <customValue>
+        <fullName>Application process</fullName>
+        <default>false</default>
+        <label>Application process</label>
+    </customValue>
+    <masterLabel>LC Topics</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

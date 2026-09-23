@@ -1,0 +1,21 @@
+@import 'c/lcStyles';
+
+.prof { max-width: 1100px; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+.prof__back { margin-bottom: 1rem; }
+.prof__layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); gap: 1.25rem; align-items: start; }
+.prof__head { display: flex; gap: 1.25rem; align-items: center; }
+.prof__name { margin: 0; font-size: 1.75rem; color: var(--lc-brand); }
+.prof__headline { margin: 0.25rem 0 0.5rem; color: var(--lc-muted); }
+.prof__facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+.prof__fact dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--lc-muted); }
+.prof__fact dd { margin: 0.15rem 0 0; font-weight: 600; }
+.prof__h2 { font-size: 1.05rem; margin: 1.25rem 0 0.5rem; }
+.prof__bio { white-space: pre-line; line-height: 1.6; }
+.prof__cta { position: sticky; top: 1rem; display: grid; gap: 0.6rem; }
+.prof__cta .prof__h2 { margin-top: 0; }
+.prof__small { font-size: 0.78rem; }
+
+@media (max-width: 768px) {
+    .prof__layout { grid-template-columns: 1fr; }
+    .prof__cta { position: static; }
+}

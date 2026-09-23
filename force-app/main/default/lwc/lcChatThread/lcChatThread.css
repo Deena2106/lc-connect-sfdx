@@ -1,0 +1,31 @@
+@import 'c/lcStyles';
+
+.thread { display: flex; flex-direction: column; height: 100%; min-height: 0; background: var(--lc-soft); }
+.thread__head { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #fff; border-bottom: 1px solid var(--lc-line); flex-wrap: wrap; }
+.thread__who { flex: 1; min-width: 0; }
+.thread__name { margin: 0; font-size: 1rem; }
+.thread__subtitle { margin: 0; font-size: 0.8rem; }
+.thread__actions { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.thread__messages { flex: 1; overflow-y: auto; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; min-height: 240px; }
+.thread__system { align-self: center; font-size: 0.72rem; color: var(--lc-muted); background: #e9ecf1; border-radius: 999px; padding: 0.25rem 0.75rem; margin: 0; text-align: center; }
+.thread__wrap { display: flex; flex-direction: column; align-items: flex-start; max-width: 75%; }
+.thread__wrap_mine { align-self: flex-end; align-items: flex-end; }
+.thread__wrap_system { align-self: center; align-items: center; max-width: 90%; }
+.thread__bubble { background: #fff; border: 1px solid var(--lc-line); border-radius: 14px 14px 14px 4px; padding: 0.6rem 0.85rem; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
+.thread__bubble_mine { background: var(--lc-brand); color: var(--lc-brand-contrast); border-color: var(--lc-brand); border-radius: 14px 14px 4px 14px; }
+.thread__bubble_staff { background: #eef4ff; border-color: #bfd3f6; }
+.thread__bubble_system { background: transparent; border: 0; font-size: 0.8rem; font-style: italic; color: var(--lc-muted); text-align: center; }
+.thread__bubble_held { opacity: 0.65; border-style: dashed; }
+.thread__meta { font-size: 0.7rem; color: #9aa3af; margin-top: 0.2rem; }
+.thread__notice { font-size: 0.72rem; color: #92400e; margin-top: 0.2rem; }
+.thread__banner { margin: 0 1rem 0.5rem; }
+.thread__time { display: flex; align-items: flex-end; gap: 0.5rem; padding: 0.25rem 1rem; }
+.thread__compose { display: flex; gap: 0.6rem; padding: 0.75rem 1rem; background: #fff; border-top: 1px solid var(--lc-line); align-items: flex-end; }
+.thread__input { flex: 1; resize: vertical; min-height: 2.6rem; max-height: 10rem; border: 1px solid #cfd5de; border-radius: 8px; padding: 0.55rem 0.75rem; font: inherit; }
+.thread__input:focus { outline: 2px solid var(--lc-accent); }
+.thread__back { display: none; }
+
+@media (max-width: 900px) {
+    .thread__back { display: inline-flex; }
+    .thread__wrap { max-width: 90%; }
+}

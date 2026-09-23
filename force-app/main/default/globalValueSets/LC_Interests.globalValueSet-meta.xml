@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Arts and crafts</fullName>
+        <default>false</default>
+        <label>Arts and crafts</label>
+    </customValue>
+    <customValue>
+        <fullName>Cooking</fullName>
+        <default>false</default>
+        <label>Cooking</label>
+    </customValue>
+    <customValue>
+        <fullName>Coding and tech</fullName>
+        <default>false</default>
+        <label>Coding and tech</label>
+    </customValue>
+    <customValue>
+        <fullName>Faith and belief</fullName>
+        <default>false</default>
+        <label>Faith and belief</label>
+    </customValue>
+    <customValue>
+        <fullName>Fashion</fullName>
+        <default>false</default>
+        <label>Fashion</label>
+    </customValue>
+    <customValue>
+        <fullName>Film and TV</fullName>
+        <default>false</default>
+        <label>Film and TV</label>
+    </customValue>
+    <customValue>
+        <fullName>Gaming</fullName>
+        <default>false</default>
+        <label>Gaming</label>
+    </customValue>
+    <customValue>
+        <fullName>Hiking and outdoors</fullName>
+        <default>false</default>
+        <label>Hiking and outdoors</label>
+    </customValue>
+    <customValue>
+        <fullName>Music</fullName>
+        <default>false</default>
+        <label>Music</label>
+    </customValue>
+    <customValue>
+        <fullName>Photography</fullName>
+        <default>false</default>
+        <label>Photography</label>
+    </customValue>
+    <customValue>
+        <fullName>Podcasts</fullName>
+        <default>false</default>
+        <label>Podcasts</label>
+    </customValue>
+    <customValue>
+        <fullName>Reading</fullName>
+        <default>false</default>
+        <label>Reading</label>
+    </customValue>
+    <customValue>
+        <fullName>Societies and clubs</fullName>
+        <default>false</default>
+        <label>Societies and clubs</label>
+    </customValue>
+    <customValue>
+        <fullName>Sport and fitness</fullName>
+        <default>false</default>
+        <label>Sport and fitness</label>
+    </customValue>
+    <customValue>
+        <fullName>Travel</fullName>
+        <default>false</default>
+        <label>Travel</label>
+    </customValue>
+    <customValue>
+        <fullName>Volunteering</fullName>
+        <default>false</default>
+        <label>Volunteering</label>
+    </customValue>
+    <masterLabel>LC Interests</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,15 @@
+<template>
+    <template lwc:if={open}>
+        <div class="modal__backdrop" onclick={handleCancel}></div>
+        <div class="modal lc-card" role="dialog" aria-modal="true" aria-labelledby="lc-report-title" onkeydown={handleKey}>
+            <h2 id="lc-report-title" class="modal__title">Report a concern</h2>
+            <p class="lc-muted">Tell us what happened. A member of university staff will review this chat. If you are in danger, contact the emergency services.</p>
+            <lightning-radio-group name="reason" label="What is the concern?" options={reasonOptions} value={reason} required onchange={handleReason}></lightning-radio-group>
+            <lightning-textarea name="details" label="More detail (optional)" value={details} max-length="2000" onchange={handleDetails}></lightning-textarea>
+            <div class="modal__actions">
+                <button class="lc-btn" onclick={handleCancel}>Cancel</button>
+                <button class="lc-btn lc-btn_accent" onclick={handleSubmit} disabled={submitDisabled}>Send report</button>
+            </div>
+        </div>
+    </template>
+</template>

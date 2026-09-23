@@ -1,0 +1,14 @@
+@import 'c/lcStyles';
+
+.reg { max-width: 760px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+.reg__steps { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.reg__steps span { height: 5px; flex: 1; border-radius: 3px; background: var(--lc-line); }
+.reg__steps span.on { background: var(--lc-accent); }
+.reg__title { color: var(--lc-brand); font-size: 1.6rem; margin: 0.25rem 0 0.5rem; }
+.reg__form { display: grid; gap: 0.9rem; margin-top: 1rem; }
+.reg__two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.reg__link { justify-self: start; font-size: 0.8rem; margin-top: -0.5rem; }
+
+@media (max-width: 600px) {
+    .reg__two { grid-template-columns: 1fr; }
+}

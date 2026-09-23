@@ -1,0 +1,65 @@
+<template>
+    <section class="ed">
+        <a class="lc-btn lc-btn_link" href={inboxUrl}>← Back to inbox</a>
+        <h1 class="ed__title">My ambassador profile</h1>
+
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading profile" size="small"></lightning-spinner>
+        </template>
+
+        <template lwc:if={profile}>
+            <div class={statusClass} role="status">
+                <strong>Status: {profile.status}</strong>
+                <span>{statusHelp}</span>
+                <template lwc:if={profile.approvalComments}>
+                    <span>Feedback from the team: {profile.approvalComments}</span>
+                </template>
+            </div>
+
+            <div class="ed__layout">
+                <form class="lc-card ed__form" onsubmit={handleSave}>
+                    <lightning-input label="Display name" name="displayName" value={form.displayName} required maxlength="40" field-level-help="Your first name or the name you go by. Never include your surname." onchange={handleChange}></lightning-input>
+                    <lightning-input label="Headline" name="headline" value={form.headline} maxlength="80" placeholder="e.g. Second-year Computer Science student" onchange={handleChange}></lightning-input>
+                    <lightning-textarea label="About me" name="bio" value={form.bio} max-length="2000" field-level-help="What would you have liked to know before you started? Don't include contact details." onchange={handleChange}></lightning-textarea>
+                    <div class="ed__two">
+                        <lightning-input label="Home country" name="homeCountry" value={form.homeCountry} maxlength="80" onchange={handleChange}></lightning-input>
+                        <lightning-input label="Home town or city (optional)" name="homeCity" value={form.homeCity} maxlength="80" onchange={handleChange}></lightning-input>
+                    </div>
+                    <lightning-input type="checkbox" label="I have lived in university halls" name="livedInHalls" checked={form.livedInHalls} onchange={handleChange}></lightning-input>
+                    <lightning-checkbox-group label="Interests (choose up to 5)" name="interests" options={profile.interestOptions} value={form.interests} onchange={handleChange}></lightning-checkbox-group>
+                    <lightning-checkbox-group label="Languages I can chat in" name="languages" options={profile.languageOptions} value={form.languages} onchange={handleChange}></lightning-checkbox-group>
+
+                    <template lwc:if={error}>
+                        <p class="lc-error" role="alert">{error}</p>
+                    </template>
+                    <template lwc:if={saved}>
+                        <p class="lc-notice" role="status">{saved}</p>
+                    </template>
+                    <button type="submit" class="lc-btn lc-btn_primary" disabled={isSaving}>Save profile</button>
+                    <p class="lc-muted">Changes to your name, headline, bio, interests, languages or home details are checked by the ambassador team before they appear on the website.</p>
+                </form>
+
+                <aside class="lc-card ed__photo">
+                    <h2 class="ed__h2">Profile photo</h2>
+                    <template lwc:if={profile.photoUrl}>
+                        <img class="ed__img" src={profile.photoUrl} alt="Your current profile photo" />
+                    </template>
+                    <template lwc:else>
+                        <p class="lc-muted">No approved photo yet.</p>
+                    </template>
+                    <lightning-file-upload
+                        label="Upload a new photo"
+                        name="photo"
+                        accept={acceptedFormats}
+                        record-id={profile.id}
+                        onuploadfinished={handleUpload}
+                    ></lightning-file-upload>
+                    <p class="lc-muted">Use a clear, friendly photo of your face. The team will approve it before it goes live.</p>
+                    <h2 class="ed__h2">Studying</h2>
+                    <p>{profile.programme}</p>
+                    <p class="lc-muted">To change your programme, contact the ambassador team.</p>
+                </aside>
+            </div>
+        </template>
+    </section>
+</template>

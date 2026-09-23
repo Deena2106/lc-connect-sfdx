@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Connect_Blocked_Reason__c</fullName>
+    <description>Why the person was blocked. Staff only.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Why the person was blocked. Staff only.</inlineHelpText>
+    <label>Connect Blocked Reason</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Action__c</fullName>
+    <description>Hold stops delivery until reviewed. Flag only delivers and flags.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Action</label>
+    <required>true</required>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hold</fullName>
+                <default>false</default>
+                <label>Hold</label>
+            </value>
+            <value>
+                <fullName>Flag only</fullName>
+                <default>false</default>
+                <label>Flag only</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

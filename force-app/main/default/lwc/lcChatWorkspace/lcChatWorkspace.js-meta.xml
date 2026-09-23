@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>LC Chat Workspace</masterLabel>
+    <description>Launched Connect: prospect inbox, chat thread and help panel. Place on the My Chats page.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="monitorNotice" type="String" label="Monitoring notice" default="Messages are monitored by Launched EDX University staff to keep everyone safe."/>
+            <property name="link1Label" type="String" label="Link 1 label" default="Book an open day"/>
+            <property name="link1Url" type="String" label="Link 1 URL"/>
+            <property name="link2Label" type="String" label="Link 2 label" default="Accommodation guide"/>
+            <property name="link2Url" type="String" label="Link 2 URL"/>
+            <property name="link3Label" type="String" label="Link 3 label" default="Fees and funding"/>
+            <property name="link3Url" type="String" label="Link 3 URL"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

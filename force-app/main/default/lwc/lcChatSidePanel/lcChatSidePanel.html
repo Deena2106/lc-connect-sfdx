@@ -1,0 +1,19 @@
+<template>
+    <aside class="side">
+        <div class="lc-notice">
+            <strong>Staying safe</strong><br />
+            {safetyText}
+        </div>
+        <h3 class="side__h">Need an official answer?</h3>
+        <p class="lc-muted">{officialText}</p>
+        <button class="lc-btn lc-btn_accent lc-btn_block" onclick={handleAsk}>Ask the admissions team</button>
+        <template lwc:if={hasLinks}>
+            <h3 class="side__h">Useful links</h3>
+            <ul class="side__links">
+                <template for:each={links} for:item="link">
+                    <li key={link.url}><a href={link.url} target="_blank" rel="noopener">{link.label} →</a></li>
+                </template>
+            </ul>
+        </template>
+    </aside>
+</template>

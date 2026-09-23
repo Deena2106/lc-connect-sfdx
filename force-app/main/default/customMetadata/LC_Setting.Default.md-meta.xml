@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Default</label>
+    <protected>false</protected>
+    <values>
+        <field>Poll_Interval_Seconds__c</field>
+        <value xsi:type="xsd:double">5</value>
+    </values>
+    <values>
+        <field>Max_Messages_Per_Minute__c</field>
+        <value xsi:type="xsd:double">10</value>
+    </values>
+    <values>
+        <field>Max_New_Conversations_Per_Day__c</field>
+        <value xsi:type="xsd:double">5</value>
+    </values>
+    <values>
+        <field>Retention_Months__c</field>
+        <value xsi:type="xsd:double">24</value>
+    </values>
+    <values>
+        <field>Guidelines_Version__c</field>
+        <value xsi:type="xsd:string">1.0</value>
+    </values>
+    <values>
+        <field>Minimum_Age__c</field>
+        <value xsi:type="xsd:double">16</value>
+    </values>
+    <values>
+        <field>Record_Owner_Username__c</field>
+        <value xsi:type="xsd:string">launched.connect.owner@launchededx.ac.uk</value>
+    </values>
+    <values>
+        <field>Moderation_Queue__c</field>
+        <value xsi:type="xsd:string">Connect_Moderation</value>
+    </values>
+    <values>
+        <field>Admissions_Queue__c</field>
+        <value xsi:type="xsd:string">UG_Admissions</value>
+    </values>
+    <values>
+        <field>Allowed_Link_Domains__c</field>
+        <value xsi:type="xsd:string">launchededx.ac.uk</value>
+    </values>
+</CustomMetadata>

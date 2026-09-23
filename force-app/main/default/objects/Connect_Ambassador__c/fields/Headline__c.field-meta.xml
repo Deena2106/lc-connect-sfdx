@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Headline__c</fullName>
+    <description>One-line summary shown on the profile card.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>One-line summary shown on the profile card.</inlineHelpText>
+    <label>Headline</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+</CustomField>

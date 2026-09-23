@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conversations_Count__c</fullName>
+    <description>Total conversations handled. Set by flow.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Total conversations handled. Set by flow.</inlineHelpText>
+    <label>Conversations Count</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,27 @@
+@import 'c/lcStyles';
+
+.login {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+.login__panel { position: relative; }
+.login__steps { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.login__steps span { height: 5px; flex: 1; border-radius: 3px; background: var(--lc-line); }
+.login__steps span.on { background: var(--lc-accent); }
+.login__title { color: var(--lc-brand); font-size: 1.6rem; margin: 0.25rem 0 0.5rem; }
+.login__form { display: grid; gap: 0.9rem; margin-top: 1rem; }
+.login__two { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.login__row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.login__code { letter-spacing: 0.5em; font-size: 1.3rem; }
+.login__small { margin-top: 1.25rem; font-size: 0.78rem; }
+
+@media (max-width: 768px) {
+    .login { grid-template-columns: 1fr; }
+    .login__preview { order: -1; }
+    .login__two { grid-template-columns: 1fr; }
+}

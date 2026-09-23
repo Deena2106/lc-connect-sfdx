@@ -1,0 +1,15 @@
+<template>
+    <template lwc:if={open}>
+        <div class="modal__backdrop" onclick={handleCancel}></div>
+        <div class="modal lc-card" role="dialog" aria-modal="true" aria-labelledby="lc-ask-title" onkeydown={handleKey}>
+            <h2 id="lc-ask-title" class="modal__title">{title}</h2>
+            <p class="lc-muted">{intro}</p>
+            <lightning-combobox name="subCategory" label="Topic" options={topicOptions} value={subCategory} required onchange={handleTopic}></lightning-combobox>
+            <lightning-textarea name="text" label={textLabel} value={text} max-length="2000" required={isAsk} onchange={handleText}></lightning-textarea>
+            <div class="modal__actions">
+                <button class="lc-btn" onclick={handleCancel}>Cancel</button>
+                <button class="lc-btn lc-btn_accent" onclick={handleSubmit} disabled={submitDisabled}>{submitLabel}</button>
+            </div>
+        </div>
+    </template>
+</template>

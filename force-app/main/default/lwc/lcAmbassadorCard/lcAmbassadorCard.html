@@ -1,0 +1,44 @@
+<template>
+    <article class={cardClass}>
+        <template lwc:if={ambassador.online}>
+            <span class="lc-online card__online">● Online</span>
+        </template>
+        <div class="card__avatar-wrap">
+            <span class="lc-avatar" style={avatarStyle} aria-hidden="true">
+                <template lwc:if={ambassador.photoUrl}>
+                    <img src={ambassador.photoUrl} alt="" loading="lazy" />
+                </template>
+                <template lwc:else>{initials}</template>
+            </span>
+            <template lwc:if={ambassador.homeCountryCode}>
+                <span class="card__flag" title={ambassador.homeCountry}>{ambassador.homeCountryCode}</span>
+            </template>
+        </div>
+        <h3 class="card__name">{ambassador.displayName}</h3>
+        <p class="lc-muted card__sub">{subtitle}</p>
+        <template lwc:if={isPreview}>
+            <p class="lc-muted card__sub">{locationLine}</p>
+        </template>
+        <div class="lc-tags card__tags">
+            <template for:each={tags} for:item="tag">
+                <span key={tag} class="lc-tag">{tag}</span>
+            </template>
+        </div>
+        <template lwc:if={isPreview}>
+            <template lwc:if={ambassador.bio}>
+                <p class="card__bio">{ambassador.bio}</p>
+            </template>
+            <template lwc:if={replyLabel}>
+                <p class="lc-muted">{replyLabel}</p>
+            </template>
+        </template>
+        <template lwc:else>
+            <div class="card__actions">
+                <a class="lc-btn lc-btn_small lc-btn_block" href={profileUrl}>View profile</a>
+                <button class="lc-btn lc-btn_small lc-btn_primary lc-btn_block" onclick={handleAsk}>
+                    Ask a question<span class="lc-sr-only"> to {ambassador.displayName}</span>
+                </button>
+            </div>
+        </template>
+    </article>
+</template>

@@ -1,0 +1,44 @@
+<template>
+    <nav class="inbox" aria-label={heading}>
+        <h2 class="inbox__title">
+            <span>{heading}</span>
+            <span class="lc-muted">{count}</span>
+        </h2>
+        <template lwc:if={isEmpty}>
+            <p class="lc-muted inbox__empty">{emptyText}</p>
+        </template>
+        <ul class="inbox__list">
+            <template for:each={items} for:item="item">
+                <li key={item.id}>
+                    <button class={item.cssClass} data-id={item.id} onclick={handleSelect} aria-current={item.ariaCurrent}>
+                        <span class="lc-avatar" style={item.avatarStyle} aria-hidden="true">
+                            <template lwc:if={item.counterpartPhotoUrl}>
+                                <img src={item.counterpartPhotoUrl} alt="" />
+                            </template>
+                            <template lwc:else>{item.initials}</template>
+                        </span>
+                        <span class="inbox__text">
+                            <span class="inbox__row">
+                                <span class="inbox__name">{item.counterpartName}</span>
+                                <span class="inbox__time">{item.when}</span>
+                            </span>
+                            <span class="inbox__sub">{item.subtitle}</span>
+                            <span class="inbox__preview">{item.preview}</span>
+                        </span>
+                        <template lwc:if={item.showBadge}>
+                            <span class={item.badgeClass}>{item.badge}</span>
+                        </template>
+                        <template lwc:if={item.unread}>
+                            <span class="inbox__dot"><span class="lc-sr-only">Unread</span></span>
+                        </template>
+                    </button>
+                </li>
+            </template>
+        </ul>
+        <template lwc:if={findUrl}>
+            <div class="inbox__footer">
+                <a class="lc-btn lc-btn_block" href={findUrl}>+ Find another ambassador</a>
+            </div>
+        </template>
+    </nav>
+</template>

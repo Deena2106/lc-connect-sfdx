@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Conversation__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The conversation the flag relates to. A lookup (not master-detail) so the flag can be owned by a queue and routed by Omni-Channel.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The conversation the flag relates to. A lookup (not master-detail) so the flag can be owned by a queue and routed by Omni-Channel.</inlineHelpText>
+    <label>Conversation</label>
+    <referenceTo>Connect_Conversation__c</referenceTo>
+    <relationshipLabel>Connect Flags</relationshipLabel>
+    <relationshipName>Flags</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

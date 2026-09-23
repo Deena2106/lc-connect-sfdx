@@ -1,0 +1,32 @@
+@import 'c/lcStyles';
+
+.ws {
+    position: relative;
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr) 270px;
+    height: calc(100vh - 140px);
+    min-height: 560px;
+    border: 1px solid var(--lc-line);
+    border-radius: var(--lc-radius);
+    overflow: hidden;
+    background: #fff;
+    max-width: 1280px;
+    margin: 1rem auto;
+}
+.ws__error { position: absolute; top: 0.5rem; left: 50%; transform: translateX(-50%); z-index: 5; }
+.ws__list { border-right: 1px solid var(--lc-line); min-height: 0; overflow: hidden; }
+.ws__thread { min-height: 0; display: flex; flex-direction: column; }
+.ws__thread c-lc-chat-thread { flex: 1; min-height: 0; }
+.ws__side { border-left: 1px solid var(--lc-line); overflow-y: auto; }
+.ws__empty { margin: auto; text-align: center; padding: 2rem; }
+
+@media (max-width: 1100px) {
+    .ws { grid-template-columns: 280px minmax(0, 1fr); }
+    .ws__side { display: none; }
+}
+@media (max-width: 900px) {
+    .ws { grid-template-columns: 1fr; height: calc(100vh - 100px); margin: 0; border-radius: 0; }
+    .ws__thread { display: none; }
+    .ws_thread-open .ws__list { display: none; }
+    .ws_thread-open .ws__thread { display: flex; }
+}

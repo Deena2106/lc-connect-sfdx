@@ -1,0 +1,90 @@
+<template>
+    <section class="thread" aria-label="Chat">
+        <template lwc:if={conversation}>
+            <header class="thread__head">
+                <template lwc:if={showBack}>
+                    <button class="lc-btn lc-btn_small thread__back" onclick={handleBack}>← Back</button>
+                </template>
+                <span class="lc-avatar" style={avatarStyle} aria-hidden="true">
+                    <template lwc:if={conversation.counterpartPhotoUrl}>
+                        <img src={conversation.counterpartPhotoUrl} alt="" />
+                    </template>
+                    <template lwc:else>{initials}</template>
+                </span>
+                <div class="thread__who">
+                    <h2 class="thread__name">{title}</h2>
+                    <p class="lc-muted thread__subtitle">{subtitle}</p>
+                </div>
+                <div class="thread__actions">
+                    <template lwc:if={isAmbassador}>
+                        <button class="lc-btn lc-btn_small" onclick={openRefer} disabled={isLocked}>↗ Refer to admissions</button>
+                    </template>
+                    <button class="lc-btn lc-btn_small" onclick={openReport}>⚑ Report</button>
+                    <template lwc:if={canClose}>
+                        <button class="lc-btn lc-btn_small" onclick={handleClose}>Close chat</button>
+                    </template>
+                </div>
+            </header>
+        </template>
+
+        <div class="thread__messages" role="log" aria-live="polite" lwc:ref="scroller">
+            <p class="thread__system">{monitorNotice}</p>
+            <template lwc:if={isLoading}>
+                <lightning-spinner alternative-text="Loading messages" size="small"></lightning-spinner>
+            </template>
+            <template for:each={displayMessages} for:item="m">
+                <div key={m.key} class={m.wrapClass}>
+                    <div class={m.bubbleClass}>{m.body}</div>
+                    <div class="thread__meta">
+                        {m.meta}
+                        <template lwc:if={m.failed}>
+                            · <button class="lc-btn lc-btn_link" data-key={m.key} onclick={retry}>Retry</button>
+                        </template>
+                    </div>
+                    <template lwc:if={m.notice}>
+                        <div class="thread__notice">{m.notice}</div>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <template lwc:if={noticeText}>
+            <p class="lc-notice thread__banner" role="status">{noticeText}</p>
+        </template>
+        <template lwc:if={error}>
+            <p class="lc-error thread__banner" role="alert">{error}</p>
+        </template>
+
+        <template lwc:if={isAmbassador}>
+            <div class="thread__time">
+                <lightning-combobox
+                    label="Log time for this chat"
+                    variant="label-inline"
+                    value={logMinutes}
+                    options={minuteOptions}
+                    onchange={handleMinutes}
+                ></lightning-combobox>
+                <button class="lc-btn lc-btn_small" onclick={handleLogTime} disabled={isBusy}>Log time</button>
+            </div>
+        </template>
+
+        <form class="thread__compose" onsubmit={handleSend}>
+            <label class="lc-sr-only" for="lc-compose">Message</label>
+            <textarea
+                id="lc-compose"
+                class="thread__input"
+                rows="2"
+                maxlength="4000"
+                placeholder={composePlaceholder}
+                disabled={isLocked}
+                onkeydown={handleKeydown}
+                oninput={handleDraft}
+                lwc:ref="composer"
+            ></textarea>
+            <button type="submit" class="lc-btn lc-btn_primary" disabled={sendDisabled}>Send</button>
+        </form>
+
+        <c-lc-report-concern open={showReport} onsubmit={submitReport} oncancel={closeModals}></c-lc-report-concern>
+        <c-lc-ask-admissions open={showRefer} mode="refer" onsubmit={submitRefer} oncancel={closeModals}></c-lc-ask-admissions>
+    </section>
+</template>

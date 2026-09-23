@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prospect_Unread__c</fullName>
+    <description>True when there is a reply the prospect has not seen.</description>
+    <externalId>false</externalId>
+    <formula>AND(NOT(ISPICKVAL(Last_Message_By__c, 'Prospect')), NOT(ISBLANK(Last_Message_At__c)), OR(ISBLANK(Prospect_Last_Read_At__c), Last_Message_At__c &gt; Prospect_Last_Read_At__c))</formula>
+    <inlineHelpText>True when there is a reply the prospect has not seen.</inlineHelpText>
+    <label>Prospect Unread</label>
+    <type>Checkbox</type>
+</CustomField>

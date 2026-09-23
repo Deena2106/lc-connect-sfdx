@@ -1,0 +1,72 @@
+<template>
+    <section class="prof">
+        <a class="lc-btn lc-btn_link prof__back" href={directoryUrl}>← All ambassadors</a>
+
+        <template lwc:if={isLoading}>
+            <lightning-spinner alternative-text="Loading profile" size="small"></lightning-spinner>
+        </template>
+
+        <template lwc:if={notFound}>
+            <div class="lc-card">
+                <h1 class="prof__name">This ambassador is not available</h1>
+                <p>They may be taking a break. Please choose another ambassador.</p>
+                <a class="lc-btn lc-btn_primary" href={directoryUrl}>Browse ambassadors</a>
+            </div>
+        </template>
+
+        <template lwc:if={ambassador}>
+            <div class="prof__layout">
+                <div class="lc-card prof__main">
+                    <div class="prof__head">
+                        <span class="lc-avatar" style={avatarStyle} aria-hidden="true">
+                            <template lwc:if={ambassador.photoUrl}>
+                                <img src={ambassador.photoUrl} alt="" />
+                            </template>
+                            <template lwc:else>{initials}</template>
+                        </span>
+                        <div>
+                            <h1 class="prof__name">{ambassador.displayName}</h1>
+                            <p class="prof__headline">{ambassador.headline}</p>
+                            <template lwc:if={ambassador.online}>
+                                <span class="lc-online">● Online now</span>
+                            </template>
+                        </div>
+                    </div>
+
+                    <dl class="prof__facts">
+                        <template for:each={facts} for:item="fact">
+                            <div key={fact.label} class="prof__fact">
+                                <dt>{fact.label}</dt>
+                                <dd>{fact.value}</dd>
+                            </div>
+                        </template>
+                    </dl>
+
+                    <template lwc:if={hasInterests}>
+                        <h2 class="prof__h2">Interests</h2>
+                        <div class="lc-tags">
+                            <template for:each={ambassador.interests} for:item="tag">
+                                <span key={tag} class="lc-tag">{tag}</span>
+                            </template>
+                        </div>
+                    </template>
+
+                    <h2 class="prof__h2">About {ambassador.displayName}</h2>
+                    <p class="prof__bio">{ambassador.bio}</p>
+                </div>
+
+                <aside class="lc-card prof__cta">
+                    <h2 class="prof__h2">Chat with {ambassador.displayName}</h2>
+                    <p class="lc-muted">{replyLabel}</p>
+                    <button class="lc-btn lc-btn_accent lc-btn_block" onclick={handleChat}>{ctaLabel}</button>
+                    <p class="lc-muted prof__small">{safetyNote}</p>
+                    <a class="lc-btn lc-btn_link" href={guidelinesUrl}>Community guidelines</a>
+                </aside>
+            </div>
+        </template>
+
+        <template lwc:if={error}>
+            <p class="lc-error">{error}</p>
+        </template>
+    </section>
+</template>

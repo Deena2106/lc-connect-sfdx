@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Home_Country_Code__c</fullName>
+    <description>Two-letter ISO country code, used for the flag badge (for example NG).</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Two-letter ISO country code, used for the flag badge (for example NG).</inlineHelpText>
+    <label>Home Country Code</label>
+    <length>2</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+</CustomField>

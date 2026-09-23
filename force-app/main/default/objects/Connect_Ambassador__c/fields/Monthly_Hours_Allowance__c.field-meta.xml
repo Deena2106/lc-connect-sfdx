@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Hours_Allowance__c</fullName>
+    <description>Maximum paid hours per month.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Maximum paid hours per month.</inlineHelpText>
+    <label>Monthly Hours Allowance</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

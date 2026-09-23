@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Learning_Program__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The programme the ambassador studies. Drives the Subject filter.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The programme the ambassador studies. Drives the Subject filter.</inlineHelpText>
+    <label>Programme</label>
+    <referenceTo>LearningProgram</referenceTo>
+    <relationshipLabel>Connect Ambassadors</relationshipLabel>
+    <relationshipName>Connect_Ambassadors</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

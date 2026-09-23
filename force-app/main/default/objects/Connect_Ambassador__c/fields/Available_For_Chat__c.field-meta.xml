@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Available_For_Chat__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Untick to hide the ambassador temporarily, for example during exams.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Untick to hide the ambassador temporarily, for example during exams.</inlineHelpText>
+    <label>Available for Chat</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

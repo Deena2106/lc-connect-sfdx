@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Profile_Approved_By__c</fullName>
+    <description>Staff member who last approved the profile.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Staff member who last approved the profile.</inlineHelpText>
+    <label>Profile Approved By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Connect Ambassadors</relationshipLabel>
+    <relationshipName>Connect_Ambassadors_Approved</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

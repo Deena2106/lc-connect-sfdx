@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Response_Minutes__c</fullName>
+    <description>Minutes between the first prospect message and the first reply.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Minutes between the first prospect message and the first reply.</inlineHelpText>
+    <label>First Response (mins)</label>
+    <precision>8</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

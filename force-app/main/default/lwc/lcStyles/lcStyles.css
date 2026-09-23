@@ -1,0 +1,107 @@
+/* Launched Connect - shared styles. Import with: @import 'c/lcStyles'; */
+:host {
+    --lc-brand: var(--dxp-g-brand, #14264a);
+    --lc-brand-contrast: var(--dxp-g-brand-contrast, #ffffff);
+    --lc-accent: #f96620;
+    --lc-ink: #1d2433;
+    --lc-muted: #5b6472;
+    --lc-line: #e3e6ec;
+    --lc-soft: #f4f6f9;
+    --lc-danger: #b91c1c;
+    --lc-success: #15803d;
+    --lc-radius: 12px;
+    display: block;
+    color: var(--lc-ink);
+    font-family: var(--dxp-s-body-font-family, inherit);
+}
+
+.lc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--lc-brand);
+    background: #fff;
+    color: var(--lc-brand);
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+.lc-btn:hover { filter: brightness(0.96); }
+.lc-btn:focus-visible { outline: 3px solid var(--lc-accent); outline-offset: 2px; }
+.lc-btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.lc-btn_primary { background: var(--lc-brand); color: var(--lc-brand-contrast); }
+.lc-btn_accent { background: var(--lc-accent); border-color: var(--lc-accent); color: #fff; }
+.lc-btn_small { min-height: 2rem; padding: 0.3rem 0.75rem; font-size: 0.8rem; }
+.lc-btn_block { width: 100%; }
+.lc-btn_link { border: 0; background: none; padding: 0; min-height: 0; text-decoration: underline; }
+
+.lc-card {
+    background: #fff;
+    border: 1px solid var(--lc-line);
+    border-radius: var(--lc-radius);
+    padding: 1.25rem;
+}
+
+.lc-avatar {
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    flex: none;
+    overflow: hidden;
+    position: relative;
+}
+.lc-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+.lc-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.lc-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: #eef2f8;
+    color: var(--lc-brand);
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+}
+
+.lc-muted { color: var(--lc-muted); font-size: 0.85rem; }
+.lc-error {
+    color: var(--lc-danger);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+}
+.lc-notice {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #7c2d12;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+.lc-online {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--lc-success);
+    background: #dcfce7;
+    border-radius: 999px;
+    padding: 0.1rem 0.5rem;
+}
+.lc-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}

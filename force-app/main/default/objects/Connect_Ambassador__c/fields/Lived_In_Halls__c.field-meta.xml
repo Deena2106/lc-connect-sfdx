@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lived_In_Halls__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Tick if the ambassador has lived in university accommodation.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tick if the ambassador has lived in university accommodation.</inlineHelpText>
+    <label>Lived in Halls</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

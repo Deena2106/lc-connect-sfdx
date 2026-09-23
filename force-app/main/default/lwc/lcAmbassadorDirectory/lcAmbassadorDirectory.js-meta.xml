@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>LC Ambassador Directory</masterLabel>
+    <description>Launched Connect: public search and filter of published ambassadors.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="heading" type="String" label="Heading" default="Chat to a current student"/>
+            <property name="intro" type="String" label="Introduction" default="Choosing a university is a big decision. Talk to someone who knows what it's really like."/>
+            <property name="disclaimer" type="String" label="Ambassador note" default="Ambassadors are current students appointed and trained by the university."/>
+            <property name="pageSize" type="Integer" label="Ambassadors per page" default="12" min="4" max="48"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

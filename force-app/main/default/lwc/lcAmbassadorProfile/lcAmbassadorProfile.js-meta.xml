@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>LC Ambassador Profile</masterLabel>
+    <description>Launched Connect: public profile for one ambassador. Reads ?name= from the URL.</description>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="safetyNote" type="String" label="Safety note" default="Chats are monitored by university staff to keep everyone safe. Please don’t share personal contact details."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

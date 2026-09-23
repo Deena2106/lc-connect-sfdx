@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Outcome__c</fullName>
+    <description>What the moderator decided.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>What the moderator decided.</inlineHelpText>
+    <label>Outcome</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Released</fullName>
+                <default>false</default>
+                <label>Released</label>
+            </value>
+            <value>
+                <fullName>Hidden</fullName>
+                <default>false</default>
+                <label>Hidden</label>
+            </value>
+            <value>
+                <fullName>Staff note sent</fullName>
+                <default>false</default>
+                <label>Staff note sent</label>
+            </value>
+            <value>
+                <fullName>Conversation paused</fullName>
+                <default>false</default>
+                <label>Conversation paused</label>
+            </value>
+            <value>
+                <fullName>Conversation closed</fullName>
+                <default>false</default>
+                <label>Conversation closed</label>
+            </value>
+            <value>
+                <fullName>User blocked</fullName>
+                <default>false</default>
+                <label>User blocked</label>
+            </value>
+            <value>
+                <fullName>Escalated to safeguarding</fullName>
+                <default>false</default>
+                <label>Escalated to safeguarding</label>
+            </value>
+            <value>
+                <fullName>No action</fullName>
+                <default>false</default>
+                <label>No action</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

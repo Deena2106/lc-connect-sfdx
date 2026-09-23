@@ -1,0 +1,30 @@
+@import 'c/lcStyles';
+
+.dir { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.dir__title { font-size: clamp(1.6rem, 3vw, 2.1rem); color: var(--lc-brand); margin: 0 0 0.5rem; }
+.dir__intro { color: var(--lc-muted); max-width: 60rem; line-height: 1.55; margin: 0; }
+.dir__search { display: flex; gap: 0.75rem; align-items: center; margin: 1.25rem 0 0.75rem; }
+.dir__search-input { flex: 1; }
+.dir__filters { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; }
+.dir__stats { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; margin: 1rem 0; font-size: 0.9rem; }
+.dir__note { margin-left: auto; }
+.dir__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 1rem;
+}
+.dir__grid li { display: flex; }
+.dir__grid c-lc-ambassador-card { flex: 1; }
+.dir__more { text-align: center; margin-top: 1.5rem; }
+.dir__empty { text-align: center; }
+
+@media (max-width: 768px) {
+    .dir__filters { grid-template-columns: 1fr 1fr; }
+    .dir__note { margin-left: 0; }
+}
+@media (max-width: 480px) {
+    .dir__filters { grid-template-columns: 1fr; }
+}

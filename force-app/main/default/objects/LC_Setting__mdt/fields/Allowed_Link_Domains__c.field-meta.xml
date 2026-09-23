@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Allowed_Link_Domains__c</fullName>
+    <description>Comma-separated domains that links may point to, for example launchededx.ac.uk.</description>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Allowed Link Domains</label>
+    <length>255</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>
