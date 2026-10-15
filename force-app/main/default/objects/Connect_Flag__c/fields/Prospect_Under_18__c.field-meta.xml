@@ -3,9 +3,9 @@
     <fullName>Prospect_Under_18__c</fullName>
     <defaultValue>false</defaultValue>
     <description>Stamped at creation. Raises the severity by one level.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Stamped at creation. Raises the severity by one level.</inlineHelpText>
     <label>Prospect Under 18</label>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

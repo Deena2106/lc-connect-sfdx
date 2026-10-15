@@ -3,13 +3,15 @@
     <fullName>Waiting_Hours__c</fullName>
     <description>Hours the prospect has been waiting for a reply.</description>
     <externalId>false</externalId>
-    <formula>IF(AND(ISPICKVAL(Last_Message_By__c, 'Prospect'), NOT(ISPICKVAL(Status__c, 'Closed'))), (NOW() - Last_Message_At__c) * 24, 0)</formula>
+    <formula>IF(AND(ISPICKVAL(Last_Message_By__c, &apos;Prospect&apos;), NOT(ISPICKVAL(Status__c, &apos;Closed&apos;))), (NOW() - Last_Message_At__c) * 24, 0)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <inlineHelpText>Hours the prospect has been waiting for a reply.</inlineHelpText>
     <label>Waiting Hours</label>
-    <precision>8</precision>
+    <precision>18</precision>
     <required>false</required>
     <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Number</type>
     <unique>false</unique>
 </CustomField>

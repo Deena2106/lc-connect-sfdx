@@ -1,0 +1,29 @@
+<template>
+    <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+        <a href="/" style="display:flex; align-items:center; text-decoration:none;">
+            <img src="/sfsites/c/cms/delivery/media/MCQT2ZQHIF5VC25AVCG5DQTIEJRM" 
+                 alt="Launched EDX University" style="height:48px; width:auto; display:block;" />
+        </a>
+        
+        <div style="display:flex; align-items:center; gap:15px; white-space:nowrap;">
+            <!-- SHOW FOR GUESTS -->
+            <template lwc:if={isGuest}>
+                <a href="/login"
+                   style="display:inline-block; padding:7px 16px; background:#ffffff; color:#172e57; border:1px solid #172e57; border-radius:5px; font-family:Arial,sans-serif; font-size:13px; font-weight:600; text-decoration:none;">
+                    Log in
+                </a>
+            </template>
+            
+            <!-- SHOW FOR LOGGED IN USERS -->
+            <template lwc:else>
+                <span style="font-family:Arial,sans-serif; font-size:14px; font-weight:600; color:#172e57;">
+                    {userName}
+                </span>
+                <a href={logoutUrl}
+                   style="display:inline-block; padding:7px 16px; background:#ffffff; color:#d93232; border:1px solid #d93232; border-radius:5px; font-family:Arial,sans-serif; font-size:13px; font-weight:600; text-decoration:none;">
+                    Log out
+                </a>
+            </template>
+        </div>
+    </div>
+</template>

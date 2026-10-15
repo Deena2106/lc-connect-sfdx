@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Channel_Type__c</fullName>
     <description>Ambassador chat or a chat with the admissions team.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Ambassador chat or a chat with the admissions team.</inlineHelpText>
     <label>Channel Type</label>
     <required>true</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

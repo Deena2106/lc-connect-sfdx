@@ -2,11 +2,10 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Connect_Source__c</fullName>
     <description>How the person first arrived.</description>
-    <externalId>false</externalId>
     <inlineHelpText>How the person first arrived.</inlineHelpText>
     <label>Connect Source</label>
     <required>false</required>
-    <trackHistory>false</trackHistory>
+    <trackFeedHistory>false</trackFeedHistory>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>

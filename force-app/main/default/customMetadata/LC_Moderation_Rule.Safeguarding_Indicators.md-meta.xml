@@ -3,8 +3,24 @@
     <label>Safeguarding indicators</label>
     <protected>false</protected>
     <values>
+        <field>Action__c</field>
+        <value xsi:type="xsd:string">Flag only</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Applies_To__c</field>
+        <value xsi:type="xsd:string">All</value>
+    </values>
+    <values>
+        <field>Message_To_Sender__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Pattern__c</field>
-        <value xsi:type="xsd:string">\b(meet (up )?in person|home address|are you alone|don'?t tell (anyone|your parents)|keep (this|it) (a )?secret)\b</value>
+        <value xsi:type="xsd:string">\b(meet (up )?in person|home address|are you alone|don&apos;?t tell (anyone|your parents)|keep (this|it) (a )?secret)\b</value>
     </values>
     <values>
         <field>Reason__c</field>
@@ -15,23 +31,7 @@
         <value xsi:type="xsd:string">High</value>
     </values>
     <values>
-        <field>Action__c</field>
-        <value xsi:type="xsd:string">Flag only</value>
-    </values>
-    <values>
-        <field>Applies_To__c</field>
-        <value xsi:type="xsd:string">All</value>
-    </values>
-    <values>
-        <field>Message_To_Sender__c</field>
-        <value xsi:type="xsd:string"></value>
-    </values>
-    <values>
-        <field>Active__c</field>
-        <value xsi:type="xsd:boolean">true</value>
-    </values>
-    <values>
         <field>Sort_Order__c</field>
-        <value xsi:type="xsd:double">60</value>
+        <value xsi:type="xsd:double">60.0</value>
     </values>
 </CustomMetadata>

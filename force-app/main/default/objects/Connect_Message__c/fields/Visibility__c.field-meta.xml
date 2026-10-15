@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Visibility__c</fullName>
     <description>Held and Hidden messages are not shown to the other party.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Held and Hidden messages are not shown to the other party.</inlineHelpText>
     <label>Visibility</label>
     <required>true</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

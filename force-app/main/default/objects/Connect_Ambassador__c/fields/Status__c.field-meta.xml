@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Status__c</fullName>
     <description>Only Published ambassadors appear on the public site.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Only Published ambassadors appear on the public site.</inlineHelpText>
     <label>Status</label>
     <required>true</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

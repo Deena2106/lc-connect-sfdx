@@ -6,6 +6,7 @@
     <description>Launched Connect: prospect inbox, chat thread and help panel. Place on the My Chats page.</description>
     <targets>
         <target>lightningCommunity__Page</target>
+        <target>lightning__RecordPage</target>
         <target>lightningCommunity__Default</target>
     </targets>
     <targetConfigs>

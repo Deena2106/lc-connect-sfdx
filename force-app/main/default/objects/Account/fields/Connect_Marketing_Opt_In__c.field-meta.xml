@@ -3,9 +3,8 @@
     <fullName>Connect_Marketing_Opt_In__c</fullName>
     <defaultValue>false</defaultValue>
     <description>Opt-in given on the registration form. Sync to the consent model by flow.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Opt-in given on the registration form. Sync to the consent model by flow.</inlineHelpText>
     <label>Connect Marketing Opt In</label>
-    <trackHistory>false</trackHistory>
+    <trackFeedHistory>false</trackFeedHistory>
     <type>Checkbox</type>
 </CustomField>

@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Ambassador__c</fullName>
     <description>Ambassador who did the work.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Ambassador who did the work.</inlineHelpText>
     <label>Ambassador</label>
     <referenceTo>Connect_Ambassador__c</referenceTo>
@@ -10,6 +9,8 @@
     <relationshipName>Time_Logs</relationshipName>
     <relationshipOrder>0</relationshipOrder>
     <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>MasterDetail</type>
     <writeRequiresMasterRead>false</writeRequiresMasterRead>
 </CustomField>

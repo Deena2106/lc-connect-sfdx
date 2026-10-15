@@ -1,4 +1,4 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import startLogin from '@salesforce/apex/LC_AuthController.startLogin';
 import verifyLogin from '@salesforce/apex/LC_AuthController.verifyLogin';
 import startRegistration from '@salesforce/apex/LC_AuthController.startRegistration';
@@ -16,7 +16,7 @@ const STEP_CODE = 'code';
  */
 export default class LcLoginDiscovery extends LightningElement {
     @api heading = 'Get started';
-
+    // studentGuidelinesAccepted = false; 
     step = STEP_EMAIL;
     mode; // login | register
     email = '';
@@ -45,6 +45,9 @@ export default class LcLoginDiscovery extends LightningElement {
     }
 
     // ------------------------------------------------------------ getters
+    // get showStudentGuidelines() {
+    //     return !this.studentGuidelinesAccepted;
+    // }
     get isEmailStep() {
         return this.step === STEP_EMAIL;
     }
@@ -79,6 +82,28 @@ export default class LcLoginDiscovery extends LightningElement {
         return siteUrl(ROUTES.completeProfile);
     }
 
+    // handleStudentGuidelinesAccepted(event) {
+    //      const accepted = event.detail?.accepted === true && event.detail?.version === '1.0';
+    //      console.log('Student guidelines accepted:', accepted);
+    //      if (!accepted) {
+    //          this.studentGuidelinesAccepted = false;
+    //          this.error = 'Please accept the Student Guidelines to continue.';
+    //          return;
+    //     }
+    //      this.studentGuidelinesAccepted = true;
+    //      console.log('Show student guidelines:', this.showStudentGuidelines);
+    //      console.log('Student guidelines accepted:', this.studentGuidelinesAccepted);
+    //      this.error = undefined;
+    //      this.info = undefined;
+    // }
+    // requireStudentGuidelines() {
+    //     if (this.studentGuidelinesAccepted) {
+    //         return true;
+    //     }
+    //     this.error = 'Please accept the Student Guidelines before continuing.';
+    //     return false;
+    // }
+
     // ------------------------------------------------------------ handlers
     handleInput(event) {
         this[event.target.name] = (event.target.value || '').trim();
@@ -91,6 +116,9 @@ export default class LcLoginDiscovery extends LightningElement {
 
     async handleEmail(event) {
         event.preventDefault();
+        // if (!this.requireStudentGuidelines()) {
+        //     return;
+        // }
         if (!this.validate()) {
             return;
         }
@@ -110,6 +138,9 @@ export default class LcLoginDiscovery extends LightningElement {
 
     async handleRegister(event) {
         event.preventDefault();
+        // if (!this.requireStudentGuidelines()) {
+        //     return;
+        // }
         if (!this.validate()) {
             return;
         }
@@ -122,6 +153,9 @@ export default class LcLoginDiscovery extends LightningElement {
 
     async handleVerify(event) {
         event.preventDefault();
+        // if (!this.requireStudentGuidelines()) {
+        //     return;
+        // }
         if (!this.validate()) {
             return;
         }
@@ -136,6 +170,9 @@ export default class LcLoginDiscovery extends LightningElement {
     }
 
     async handleResend() {
+        // if (!this.requireStudentGuidelines()) {
+        //     return;
+        // }
         this.code = '';
         await this.run(async () => {
             if (this.mode === 'login') {
@@ -175,4 +212,5 @@ export default class LcLoginDiscovery extends LightningElement {
             }
         }
     }
+
 }

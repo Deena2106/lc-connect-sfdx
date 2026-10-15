@@ -2,11 +2,10 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Connect_Status__c</fullName>
     <description>The person’s Launched Connect status.</description>
-    <externalId>false</externalId>
     <inlineHelpText>The person’s Launched Connect status.</inlineHelpText>
     <label>Connect Status</label>
     <required>false</required>
-    <trackHistory>false</trackHistory>
+    <trackFeedHistory>false</trackFeedHistory>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>

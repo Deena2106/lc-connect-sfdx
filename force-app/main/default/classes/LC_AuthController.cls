@@ -63,26 +63,85 @@ public without sharing class LC_AuthController {
     }
 
     @AuraEnabled
-    public static StartResult startRegistration(String firstName, String lastName, String email) {
+    public static StartResult startRegistration( String firstName, String lastName, String email) {
         String clean = normaliseEmail(email);
         if (String.isBlank(firstName) || String.isBlank(lastName)) {
             throw LC_Context.error('Please enter your first and last name.');
         }
         if (!findSiteUsers(clean).isEmpty()) {
-            throw LC_Context.error('You already have an account. Please log in instead.');
+            throw LC_Context.error(
+                'You already have an account. Please log in instead.'
+            );
         }
+        Id prospectProfileId = [
+            SELECT Id
+            FROM Profile
+            WHERE Name = 'LC Prospect'
+            LIMIT 1
+        ].Id;
+        List<Account> existingAccounts = [
+            SELECT Id, PersonContactId
+            FROM Account
+            WHERE IsPersonAccount = TRUE
+            AND PersonEmail = :clean
+            LIMIT 1
+        ];
+        Account personAccount;
+        if (!existingAccounts.isEmpty()) {
+            personAccount = existingAccounts[0];
+        } else {
+            Id personAccountRecordTypeId = [
+                SELECT Id
+                FROM RecordType
+                WHERE SObjectType = 'Account'
+                AND IsPersonType = TRUE
+                AND IsActive = TRUE
+                LIMIT 1
+            ].Id;
+            personAccount = new Account(
+                RecordTypeId = personAccountRecordTypeId,
+                FirstName = firstName.trim().left(40),
+                LastName = lastName.trim().left(80),
+                PersonEmail = clean
+            );
+            insert personAccount;
+            personAccount = [
+                SELECT Id, PersonContactId
+                FROM Account
+                WHERE Id = :personAccount.Id
+                LIMIT 1
+            ];
+        }
+        if (personAccount.PersonContactId == null) {
+            throw LC_Context.error(
+                'We could not create the contact for your account. Please contact the university.'
+            );
+        }
+        String nick = nickname(firstName);
         User u = new User(
             FirstName = firstName.trim().left(40),
             LastName = lastName.trim().left(80),
             Email = clean,
             Username = (clean + USERNAME_SUFFIX).left(80),
-            CommunityNickname = nickname(firstName)
+            CommunityNickname = nick,
+            ProfileId = prospectProfileId,
+            Alias = nick.left(8),
+            EmailEncodingKey = 'UTF-8',
+            TimeZoneSidKey = 'Asia/Kolkata',
+            LocaleSidKey = 'en_IN',
+            LanguageLocaleKey = 'en_US',
+            ContactId = personAccount.PersonContactId
         );
+        System.debug('LC_Auth----> User--->'+u);
         StartResult result = new StartResult();
         result.mode = 'register';
         result.email = clean;
         if (!Test.isRunningTest()) {
-            result.identifier = System.UserManagement.initSelfRegistration(Auth.VerificationMethod.EMAIL, u);
+            result.identifier =
+                System.UserManagement.initSelfRegistration(
+                    Auth.VerificationMethod.EMAIL,
+                    u
+                );
         }
         return result;
     }
@@ -122,23 +181,55 @@ public without sharing class LC_AuthController {
         return clean;
     }
 
+    // private static List<User> findSiteUsers(String email) {
+    //     List<User> users = [
+    //         SELECT Id
+    //         FROM User
+    //         WHERE Email = :email AND IsActive = TRUE AND ContactId != NULL
+    //         LIMIT 5
+    //     ];
+    //     Id networkId = Network.getNetworkId();
+    //     if (networkId == null || users.isEmpty()) {
+    //         return users;
+    //     }
+    //     Set<Id> ids = new Map<Id, User>(users).keySet();
+    //     List<User> members = new List<User>();
+    //     for (NetworkMember m : [SELECT MemberId FROM NetworkMember WHERE NetworkId = :networkId AND MemberId IN :ids]) {
+    //         members.add(new User(Id = m.MemberId));
+    //     }
+    //     return members;
+    // }
+
     private static List<User> findSiteUsers(String email) {
         List<User> users = [
-            SELECT Id
+            SELECT Id, ProfileId, Profile.Name
             FROM User
-            WHERE Email = :email AND IsActive = TRUE AND ContactId != NULL
+            WHERE Email = :email
+            AND IsActive = TRUE
+            AND ContactId != NULL
             LIMIT 5
         ];
         Id networkId = Network.getNetworkId();
         if (networkId == null || users.isEmpty()) {
-            return users;
+            return new List<User>();
         }
-        Set<Id> ids = new Map<Id, User>(users).keySet();
-        List<User> members = new List<User>();
-        for (NetworkMember m : [SELECT MemberId FROM NetworkMember WHERE NetworkId = :networkId AND MemberId IN :ids]) {
-            members.add(new User(Id = m.MemberId));
+        Set<Id> userIds = new Map<Id, User>(users).keySet();
+        Set<Id> memberIds = new Set<Id>();
+        for (NetworkMember member : [
+            SELECT MemberId
+            FROM NetworkMember
+            WHERE NetworkId = :networkId
+            AND MemberId IN :userIds
+        ]) {
+            memberIds.add(member.MemberId);
         }
-        return members;
+        List<User> result = new List<User>();
+        for (User u : users) {
+            if (memberIds.contains(u.Id)) {
+                result.add(u);
+            }
+        }
+        return result;
     }
 
     /** Only allow relative, same-site paths as the post-login destination. */

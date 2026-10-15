@@ -3,7 +3,6 @@
     <fullName>Prospect__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
     <description>The prospective student (Person Account contact).</description>
-    <externalId>false</externalId>
     <inlineHelpText>The prospective student (Person Account contact).</inlineHelpText>
     <label>Prospect</label>
     <referenceTo>Contact</referenceTo>
@@ -11,5 +10,6 @@
     <relationshipName>Connect_Conversations</relationshipName>
     <required>true</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

@@ -3,9 +3,9 @@
     <fullName>Training_Completed__c</fullName>
     <defaultValue>false</defaultValue>
     <description>Must be ticked before the profile can be published.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Must be ticked before the profile can be published.</inlineHelpText>
     <label>Training Completed</label>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

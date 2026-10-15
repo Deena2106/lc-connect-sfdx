@@ -1,6 +1,8 @@
 import { LightningElement } from 'lwc';
 import getMyProfile from '@salesforce/apex/LC_AmbassadorController.getMyProfile';
 import saveMyProfile from '@salesforce/apex/LC_AmbassadorController.saveMyProfile';
+// import updatePhotoStatus from '@salesforce/apex/LC_AmbassadorController.updatePhotoStatus';
+import updatePhoto from '@salesforce/apex/LC_AmbassadorController.updatePhoto';
 import { reduceError, siteUrl, ROUTES } from 'c/lcUtils';
 
 const STATUS_HELP = {
@@ -23,8 +25,9 @@ export default class LcAmbassadorProfileEditor extends LightningElement {
     saved;
     acceptedFormats = ['.jpg', '.jpeg', '.png'];
 
-    get inboxUrl() {
-        return siteUrl(ROUTES.inbox);
+    get homeUrl() {
+        return siteUrl(ROUTES.home);
+        // return `${window.location.origin}${siteUrl(ROUTES.home)}`
     }
     get statusHelp() {
         return STATUS_HELP[this.profile.status] || '';
@@ -88,8 +91,27 @@ export default class LcAmbassadorProfileEditor extends LightningElement {
             this.isSaving = false;
         }
     }
+    async handleUpload(event) {
+        try {
+            const files = event.detail.files;
+            if (!files || files.length === 0) {
+                return;
+            }
+            const contentDocumentId = files[0].documentId;
+            const result = await updatePhoto({
+                contentDocumentId: contentDocumentId
+            });
+            this.profile = {
+                ...this.profile,
+                status: result.status,
+                photoUrl: result.photoUrl
+            };
+            this.saved = 'Photo uploaded. Your changes have been sent for review.';
+            this.error = undefined;
 
-    handleUpload() {
-        this.saved = 'Photo uploaded. The ambassador team will review it.';
+        } catch (e) {
+            this.error = reduceError(e);
+            this.saved = undefined;
+        }
     }
 }

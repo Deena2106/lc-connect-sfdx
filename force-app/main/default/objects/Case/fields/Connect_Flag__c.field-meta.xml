@@ -3,13 +3,14 @@
     <fullName>Connect_Flag__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <description>Moderation flag that was escalated.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Moderation flag that was escalated.</inlineHelpText>
     <label>Connect Flag</label>
     <referenceTo>Connect_Flag__c</referenceTo>
     <relationshipLabel>Case</relationshipLabel>
     <relationshipName>Cases</relationshipName>
     <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

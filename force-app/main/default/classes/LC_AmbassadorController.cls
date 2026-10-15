@@ -177,6 +177,7 @@ public without sharing class LC_AmbassadorController {
         if (contentChanged && (status == 'Draft' || status == 'Published')) {
             status = 'In Review';
             upd.Status__c = status;
+            
         }
         update upd;
         return status;
@@ -210,5 +211,73 @@ public without sharing class LC_AmbassadorController {
 
     private static List<String> split(String value) {
         return String.isBlank(value) ? new List<String>() : value.split(';');
+    }
+    @AuraEnabled
+    public static String updatePhotoStatus() {
+        LC_Context.Viewer v = requireAmbassador();
+        Connect_Ambassador__c existing = load(v.ambassadorId);
+        String status = existing.Status__c;
+        if (status == 'Draft' || status == 'Published') {
+            status = 'In Review';
+            update new Connect_Ambassador__c(
+                Id = existing.Id,
+                Status__c = status
+            );
+        }
+        return status;
+    }
+    @AuraEnabled
+    public static PhotoResult updatePhoto(Id contentDocumentId) {
+        LC_Context.Viewer v = requireAmbassador();
+        Connect_Ambassador__c existing = load(v.ambassadorId);
+        if (contentDocumentId == null) {
+            throw new AuraHandledException('No photo was uploaded.');
+        }
+        ContentVersion version = [
+            SELECT Id, Title, FileExtension
+            FROM ContentVersion
+            WHERE ContentDocumentId = :contentDocumentId
+            AND IsLatest = true
+            LIMIT 1
+        ];
+        ContentDistribution distribution = new ContentDistribution(
+            Name = 'Ambassador Profile Photo - ' + existing.Id,
+            ContentVersionId = version.Id,
+            PreferencesAllowViewInBrowser = true,
+            PreferencesAllowOriginalDownload = true,
+            PreferencesLinkLatestVersion = true,
+            PreferencesNotifyOnVisit = false,
+            PreferencesPasswordRequired = false
+        );
+
+        insert distribution;
+        distribution = [
+            SELECT Id, DistributionPublicUrl, ContentDownloadUrl
+            FROM ContentDistribution
+            WHERE Id = :distribution.Id
+            LIMIT 1
+        ];
+        String status = existing.Status__c;
+        if (status == 'Draft' || status == 'Published') {
+            status = 'In Review';
+        }
+        update new Connect_Ambassador__c(
+            Id = existing.Id,
+            Photo_Url__c = distribution.ContentDownloadUrl,
+            Status__c = status
+        );
+        return new PhotoResult(
+            status,
+            distribution.ContentDownloadUrl
+        );
+    }
+    public class PhotoResult {
+        @AuraEnabled public String status;
+        @AuraEnabled public String photoUrl;
+
+        public PhotoResult(String status, String photoUrl) {
+            this.status = status;
+            this.photoUrl = photoUrl;
+        }
     }
 }

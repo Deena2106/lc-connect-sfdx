@@ -1,77 +1,82 @@
 <template>
     <section class="login">
-        <div class="lc-card login__panel">
-            <div class="login__steps" aria-hidden="true">
-                <span class={step1Class}></span><span class={step2Class}></span><span class={step3Class}></span>
-            </div>
+        <!-- <template lwc:if={showStudentGuidelines}>
+            <c-lc-student-teams-model
+                onstudentguidelinesaccepted={handleStudentGuidelinesAccepted}>
+            </c-lc-student-teams-model>
+        </template> -->
+        <!-- <template lwc:if={studentGuidelinesAccepted}> -->
+            <div class="lc-card login__panel">
+                <div class="login__steps" aria-hidden="true">
+                    <span class={step1Class}></span><span class={step2Class}></span><span class={step3Class}></span>
+                </div>
+                <!-- Step 1: email -->
+                <template lwc:if={isEmailStep}>
+                    <p class="lc-muted">Step 1 of 3</p>
+                    <h1 class="login__title">{heading}</h1>
+                    <p>Enter your email to continue. We'll check if you have an account or help you create one. No password needed.</p>
+                    <form onsubmit={handleEmail} class="login__form">
+                        <lightning-input type="email" label="Email" name="email" value={email} required autocomplete="email" onchange={handleInput}></lightning-input>
+                        <button type="submit" class="lc-btn lc-btn_primary lc-btn_block" disabled={isBusy}>Continue</button>
+                    </form>
+                </template>
 
-            <!-- Step 1: email -->
-            <template lwc:if={isEmailStep}>
-                <p class="lc-muted">Step 1 of 3</p>
-                <h1 class="login__title">{heading}</h1>
-                <p>Enter your email to continue. We'll check if you have an account or help you create one. No password needed.</p>
-                <form onsubmit={handleEmail} class="login__form">
-                    <lightning-input type="email" label="Email" name="email" value={email} required autocomplete="email" onchange={handleInput}></lightning-input>
-                    <button type="submit" class="lc-btn lc-btn_primary lc-btn_block" disabled={isBusy}>Continue</button>
-                </form>
-            </template>
-
-            <!-- Step 2 (new users): names -->
-            <template lwc:if={isNamesStep}>
-                <p class="lc-muted">Step 1 of 3 · Create your account</p>
-                <h1 class="login__title">Nice to meet you</h1>
-                <p>We don't have an account for <strong>{email}</strong> yet. Tell us your name and we'll send you a code.</p>
-                <form onsubmit={handleRegister} class="login__form">
-                    <div class="login__two">
-                        <lightning-input label="First name" name="firstName" value={firstName} required autocomplete="given-name" onchange={handleInput}></lightning-input>
-                        <lightning-input label="Last name" name="lastName" value={lastName} required autocomplete="family-name" onchange={handleInput}></lightning-input>
-                    </div>
-                    <button type="submit" class="lc-btn lc-btn_primary lc-btn_block" disabled={isBusy}>Send my code</button>
-                    <button type="button" class="lc-btn lc-btn_link" onclick={startOver}>Use a different email</button>
-                </form>
-            </template>
-
-            <!-- Step 2: code -->
-            <template lwc:if={isCodeStep}>
-                <p class="lc-muted">Step 2 of 3 · Check your email</p>
-                <h1 class="login__title">Enter your 6-digit code</h1>
-                <p>We sent a code to <strong>{email}</strong>. It can take a minute to arrive, so check your junk folder too.</p>
-                <form onsubmit={handleVerify} class="login__form">
-                    <lightning-input
-                        class="login__code"
-                        label="Verification code"
-                        name="code"
-                        value={code}
-                        required
-                        maxlength="6"
-                        pattern={codePattern}
-                        message-when-pattern-mismatch="Enter the 6 digits from your email"
-                        autocomplete="one-time-code"
-                        onchange={handleInput}
-                    ></lightning-input>
-                    <button type="submit" class="lc-btn lc-btn_primary lc-btn_block" disabled={isBusy}>Verify</button>
-                    <div class="login__row">
-                        <button type="button" class="lc-btn lc-btn_small" onclick={handleResend} disabled={isBusy}>Resend code</button>
+                <!-- Step 2 (new users): names -->
+                <template lwc:if={isNamesStep}>
+                    <p class="lc-muted">Step 1 of 3 · Create your account</p>
+                    <h1 class="login__title">Nice to meet you</h1>
+                    <p>We don't have an account for <strong>{email}</strong> yet. Tell us your name and we'll send you a code.</p>
+                    <form onsubmit={handleRegister} class="login__form">
+                        <div class="login__two">
+                            <lightning-input label="First name" name="firstName" value={firstName} required autocomplete="given-name" onchange={handleInput}></lightning-input>
+                            <lightning-input label="Last name" name="lastName" value={lastName} required autocomplete="family-name" onchange={handleInput}></lightning-input>
+                        </div>
+                        <button type="submit" class="lc-btn lc-btn_primary lc-btn_block" disabled={isBusy}>Send my code</button>
                         <button type="button" class="lc-btn lc-btn_link" onclick={startOver}>Use a different email</button>
-                    </div>
-                </form>
-            </template>
+                    </form>
+                </template>
 
-            <template lwc:if={error}>
-                <p class="lc-error" role="alert">{error}</p>
-            </template>
-            <template lwc:if={info}>
-                <p class="lc-muted" role="status">{info}</p>
-            </template>
-            <template lwc:if={isBusy}>
-                <lightning-spinner alternative-text="Please wait" size="small"></lightning-spinner>
-            </template>
+                <!-- Step 2: code -->
+                <template lwc:if={isCodeStep}>
+                    <p class="lc-muted">Step 2 of 3 · Check your email</p>
+                    <h1 class="login__title">Enter your 6-digit code</h1>
+                    <p>We sent a code to <strong>{email}</strong>. It can take a minute to arrive, so check your junk folder too.</p>
+                    <form onsubmit={handleVerify} class="login__form">
+                        <lightning-input
+                            class="login__code"
+                            label="Verification code"
+                            name="code"
+                            value={code}
+                            required
+                            maxlength="6"
+                            pattern={codePattern}
+                            message-when-pattern-mismatch="Enter the 6 digits from your email"
+                            autocomplete="one-time-code"
+                            onchange={handleInput}
+                        ></lightning-input>
+                        <button type="submit" class="lc-btn lc-btn_primary lc-btn_block" disabled={isBusy}>Verify</button>
+                        <div class="login__row">
+                            <button type="button" class="lc-btn lc-btn_small" onclick={handleResend} disabled={isBusy}>Resend code</button>
+                            <button type="button" class="lc-btn lc-btn_link" onclick={startOver}>Use a different email</button>
+                        </div>
+                    </form>
+                </template>
 
-            <p class="lc-muted login__small">
-                By continuing you agree to the <a href={guidelinesUrl}>community guidelines</a>. Chats are monitored by university staff.
-            </p>
-        </div>
+                <template lwc:if={error}>
+                    <p class="lc-error" role="alert">{error}</p>
+                </template>
+                <template lwc:if={info}>
+                    <p class="lc-muted" role="status">{info}</p>
+                </template>
+                <template lwc:if={isBusy}>
+                    <lightning-spinner alternative-text="Please wait" size="small"></lightning-spinner>
+                </template>
 
+                <p class="lc-muted login__small">
+                    By continuing you agree to the <a href={guidelinesUrl}>community guidelines</a>. Chats are monitored by university staff.
+                </p>
+            </div>
+        <!-- </template> -->
         <template lwc:if={ambassador}>
             <div class="login__preview">
                 <c-lc-ambassador-card ambassador={ambassador} variant="preview"></c-lc-ambassador-card>

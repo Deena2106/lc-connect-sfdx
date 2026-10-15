@@ -1,6 +1,6 @@
 <template>
     <section class="ed">
-        <a class="lc-btn lc-btn_link" href={inboxUrl}>← Back to inbox</a>
+        <a class="lc-btn lc-btn_link" href={homeUrl}>← Back to inbox</a>
         <h1 class="ed__title">My ambassador profile</h1>
 
         <template lwc:if={isLoading}>
@@ -42,7 +42,7 @@
                 <aside class="lc-card ed__photo">
                     <h2 class="ed__h2">Profile photo</h2>
                     <template lwc:if={profile.photoUrl}>
-                        <img class="ed__img" src={profile.photoUrl} alt="Your current profile photo" />
+                        <img class="ed__img" src={profile.photoUrl} alt={profile.displayName} />
                     </template>
                     <template lwc:else>
                         <p class="lc-muted">No approved photo yet.</p>

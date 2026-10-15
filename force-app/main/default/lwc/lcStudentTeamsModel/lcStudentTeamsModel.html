@@ -1,0 +1,140 @@
+<template>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-modal="true" aria-labelledby="terms-modal-heading">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="terms-modal-heading" class="slds-text-heading_medium slds-hyphenate">
+                        Launched Connect Guidelines
+                    </h2>
+                    <p class="slds-m-top_x-small slds-text-color_weak">
+                        Version: {currentVersion}
+                    </p>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-scrollable_y guidelines-scroll">
+                        <div class="guidelines-content">
+                            <h2>Welcome to Launched Connect</h2>
+                            <p>Launched Connect helps prospective and current students connect
+                                with Student Ambassadors to learn about student life, university
+                                experiences, courses, accommodation, activities and more.
+                            </p>
+                            <p>
+                                Our Student Ambassadors share their own experiences to help you
+                                feel more comfortable and informed.
+                            </p>
+                            <p>Please follow these guidelines whenever you use Launched Connect.</p>
+
+                            <h3>1. Be respectful and welcoming</h3>
+                            <ul>
+                                <li>Treat Student Ambassadors with respect and kindness.</li>
+                                <li>Be polite and patient in your conversations.</li>
+                                <li>Respect different backgrounds, cultures, opinions and experiences.</li>
+                                <li>Do not use offensive, threatening or discriminatory language.</li>
+                                <li>Do not bully, harass or intimidate an Ambassador.</li>
+                            </ul>
+
+                            <h2>2. Keep conversations appropriate</h2>
+                            <p>You can ask about:</p>
+                            <ul>
+                                <li>Student life, courses and studying.</li>
+                                <li>Accommodation, halls and university facilities.</li>
+                                <li>Clubs, societies, campus life and the local area.</li>
+                                <li>Hobbies, interests and an Ambassador's student experience.</li>
+                                <li>Preparing for university.</li>
+                            </ul>
+                            <p>Keep conversations relevant to the purpose of Launched Connect.</p>
+
+                            <h2>3. Protect your personal information</h2>
+                            <p>Never share passwords, bank or card details, financial information,
+                                identity documents, security information or other sensitive
+                                personal information.</p>
+                            <p>Keep conversations within Launched Connect wherever possible.</p>
+
+                            <h2>4. Remember that Ambassadors share their experience</h2>
+                            <p>Ambassadors share personal experiences and do not represent the
+                                university for official decisions.</p>
+                            <p>They cannot guarantee admission, scholarships, accommodation,
+                                employment, course outcomes or other university decisions.
+                                Contact the appropriate university team for official information.</p>
+
+                            <h2>5. Respect Ambassador boundaries</h2>
+                            <ul>
+                                <li>Be patient if an Ambassador takes time to respond.</li>
+                                <li>Do not pressure an Ambassador to continue a conversation.</li>
+                                <li>Respect their decision not to discuss a particular topic.</li>
+                                <li>Do not ask for unnecessary personal contact details.</li>
+                            </ul>
+
+                            <h2>6. Keep messages appropriate</h2>
+                            <p>Keep messages friendly, clear, relevant, respectful and appropriate.</p>
+                            <p>Do not send sexual or inappropriate content, offensive images,
+                                threats, harassment, discriminatory comments, abusive messages
+                                or unwanted repeated messages.</p>
+
+                            <h2>7. Stay safe</h2>
+                            <p>If an Ambassador asks for inappropriate personal information or
+                                makes you uncomfortable, you do not have to continue the
+                                conversation. Stop responding and report the conversation to
+                                the Launched Connect team if necessary.</p>
+                            <p>For serious safety or wellbeing concerns, contact the appropriate
+                                university support service.</p>
+
+                            <h2>8. Report a concern</h2>
+                            <p>Report bullying, harassment, threats, discrimination,
+                                inappropriate messages, requests for sensitive information
+                                or safeguarding concerns using available reporting functionality.</p>
+
+                            <h2>9. Be considerate</h2>
+                            <p>Ambassadors have their own experiences, opinions and backgrounds.
+                                Ask questions respectfully and treat their responses as personal
+                                experiences rather than official university guidance.</p>
+
+                            <h2>10. Remember</h2>
+                            <p class="remember">
+                                Be respectful. Be safe. Ask questions. Be considerate.
+                            </p>
+                            <p>
+                                For official university information or support, contact the
+                                appropriate university team.
+                            </p>
+
+                            <h2>Contact the Launched Connect Team</h2>
+                            <p>
+                                If you have a question, need support or want to report a concern,
+                                contact the Launched Connect team through the support channel
+                                provided by your university.
+                            </p>
+                            <p>
+                                By using Launched Connect, you agree to follow these guidelines
+                                and the university's relevant policies and procedures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="slds-m-top_large slds-border_top slds-p-top_medium">
+                        <lightning-input
+                            type="checkbox"
+                            label="By continuing, I confirm that I have read and agree to the Launched Connect Guidelines."
+                            checked={isAccepted}
+                            onchange={handleCheckboxChange}>
+                        </lightning-input>
+                        <template if:true={errorMessage}>
+                            <p class="slds-text-color_error slds-m-top_small" role="alert">
+                                {errorMessage}
+                            </p>
+                        </template>
+                    </div>
+                </div>
+
+                <footer class="slds-modal__footer">
+                    <lightning-button
+                        label="Accept & Continue"
+                        variant="brand"
+                        disabled={acceptDisabled}
+                        onclick={handleAccept}>
+                    </lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

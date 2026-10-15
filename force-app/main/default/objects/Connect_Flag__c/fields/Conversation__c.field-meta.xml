@@ -3,7 +3,6 @@
     <fullName>Conversation__c</fullName>
     <deleteConstraint>Restrict</deleteConstraint>
     <description>The conversation the flag relates to. A lookup (not master-detail) so the flag can be owned by a queue and routed by Omni-Channel.</description>
-    <externalId>false</externalId>
     <inlineHelpText>The conversation the flag relates to. A lookup (not master-detail) so the flag can be owned by a queue and routed by Omni-Channel.</inlineHelpText>
     <label>Conversation</label>
     <referenceTo>Connect_Conversation__c</referenceTo>
@@ -11,5 +10,6 @@
     <relationshipName>Flags</relationshipName>
     <required>true</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

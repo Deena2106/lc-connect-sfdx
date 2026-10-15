@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Approved_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
     <description>Manager who approved the time.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Manager who approved the time.</inlineHelpText>
     <label>Approved By</label>
     <referenceTo>User</referenceTo>
@@ -10,5 +10,6 @@
     <relationshipName>Connect_Time_Logs_Approved</relationshipName>
     <required>false</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

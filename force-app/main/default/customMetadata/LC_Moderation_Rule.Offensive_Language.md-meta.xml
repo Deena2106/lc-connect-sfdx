@@ -3,6 +3,22 @@
     <label>Offensive language (placeholder)</label>
     <protected>false</protected>
     <values>
+        <field>Action__c</field>
+        <value xsi:type="xsd:string">Hold</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Applies_To__c</field>
+        <value xsi:type="xsd:string">All</value>
+    </values>
+    <values>
+        <field>Message_To_Sender__c</field>
+        <value xsi:type="xsd:string">Please keep messages friendly and respectful.</value>
+    </values>
+    <values>
         <field>Pattern__c</field>
         <value xsi:type="xsd:string">\b(replace_with_agreed_word_list)\b</value>
     </values>
@@ -15,23 +31,7 @@
         <value xsi:type="xsd:string">Medium</value>
     </values>
     <values>
-        <field>Action__c</field>
-        <value xsi:type="xsd:string">Hold</value>
-    </values>
-    <values>
-        <field>Applies_To__c</field>
-        <value xsi:type="xsd:string">All</value>
-    </values>
-    <values>
-        <field>Message_To_Sender__c</field>
-        <value xsi:type="xsd:string">Please keep messages friendly and respectful.</value>
-    </values>
-    <values>
-        <field>Active__c</field>
-        <value xsi:type="xsd:boolean">false</value>
-    </values>
-    <values>
         <field>Sort_Order__c</field>
-        <value xsi:type="xsd:double">70</value>
+        <value xsi:type="xsd:double">70.0</value>
     </values>
 </CustomMetadata>

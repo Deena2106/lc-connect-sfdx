@@ -6,6 +6,7 @@
     <description>Launched Connect: public profile for one ambassador. Reads ?name= from the URL.</description>
     <targets>
         <target>lightningCommunity__Page</target>
+        <target>lightning__RecordPage</target>
         <target>lightningCommunity__Default</target>
     </targets>
     <targetConfigs>

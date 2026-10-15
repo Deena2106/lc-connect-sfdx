@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Study_Level__c</fullName>
     <description>Level of study, used by the Study level filter.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Level of study, used by the Study level filter.</inlineHelpText>
     <label>Study Level</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

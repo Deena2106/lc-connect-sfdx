@@ -2,10 +2,12 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Poll_Interval_Seconds__c</fullName>
     <description>How often an open chat checks for new messages. Suggested 5.</description>
+    <externalId>false</externalId>
     <fieldManageability>DeveloperControlled</fieldManageability>
     <label>Poll Interval Seconds</label>
     <precision>3</precision>
     <required>false</required>
     <scale>0</scale>
     <type>Number</type>
+    <unique>false</unique>
 </CustomField>

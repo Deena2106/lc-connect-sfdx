@@ -3,13 +3,12 @@
     <fullName>Connect_First_Ambassador__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <description>The ambassador the person chose when registering.</description>
-    <externalId>false</externalId>
     <inlineHelpText>The ambassador the person chose when registering.</inlineHelpText>
     <label>Connect First Ambassador</label>
     <referenceTo>Connect_Ambassador__c</referenceTo>
     <relationshipLabel>Account (Person Account)</relationshipLabel>
     <relationshipName>First_Contact_Prospects</relationshipName>
     <required>false</required>
-    <trackHistory>false</trackHistory>
+    <trackFeedHistory>false</trackFeedHistory>
     <type>Lookup</type>
 </CustomField>

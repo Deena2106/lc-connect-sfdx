@@ -3,7 +3,6 @@
     <fullName>Learning_Program__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <description>The programme the ambassador studies. Drives the Subject filter.</description>
-    <externalId>false</externalId>
     <inlineHelpText>The programme the ambassador studies. Drives the Subject filter.</inlineHelpText>
     <label>Programme</label>
     <referenceTo>LearningProgram</referenceTo>
@@ -11,5 +10,6 @@
     <relationshipName>Connect_Ambassadors</relationshipName>
     <required>false</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>

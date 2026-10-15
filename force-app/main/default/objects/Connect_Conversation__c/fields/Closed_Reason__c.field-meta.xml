@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Closed_Reason__c</fullName>
     <description>Why the conversation was closed.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Why the conversation was closed.</inlineHelpText>
     <label>Closed Reason</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
         <valueSetDefinition>

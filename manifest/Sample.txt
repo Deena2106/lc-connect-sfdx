@@ -1,1 +1,57 @@
-Need to check picklist value as default for all object
+2.2
+2.6
+LC_guest - profile
+Need to get the github access
+Need to discuss about cms for site
+
+Url - 
+https://connectlaunchededx.my.site.com/connect/ambassador?name=sofia-martinez
+https://connectlaunchededx.my.site.com/connect/ambassador?name=arjun-mehta
+https://connectlaunchededx.my.site.com/connect/ambassador?name=liam-oconnor
+https://connectlaunchededx.my.site.com/connect/ambassador?name=aisha-khan
+https://connectlaunchededx.my.site.com/connect/ambassador?name=daniel-kim
+
+Site url - https://connectlaunchededx.my.site.com/connect/
+
+---
+Lwc header component logout placed
+After user get signup need to assign the ps, on what way need to assign that
+After login, while chatting facing this error - Launched Connect is not fully configured (record owner). Please contact the university.
+---------------
+Screen flow
+Fname lastname email - register (Amab)
+sub domain - test chatting
+--------
+Having limitation in screen flow mixed dml error - we can go with apex class
+Org wide address i have sit
+Not working for ambassador site working on that
+
+pre step - org wide address
+post step - default workflow user
+------------------
+lc connect
+case
+account
+connect
+----------------
+Approval process flow need to check
+----------------
+Pre or post trust url
+----------------
+ambassador - Karen Sampson, Maria Cain
+
+Demo 
+Student 
+1. Passwordless Login and Registration: Students can log in using passwordless authentication. If their email address is not registered, they will be redirected to the registration page.
+2. Home Page Navigation: Once successfully logged in, students will be redirected to the home page (Student age should above 18).
+3. View Student Ambassadors: On the home page, students can view the list of available student ambassadors and explore their profiles.
+4. Chat with Ambassadors: Students can initiate a chat with their preferred student ambassador to ask questions and get support.
+5. Chat Moderation: The system uses moderation rules to identify and flag sensitive or inappropriate content, including email addresses, phone numbers, payment requests, offensive language, safeguarding indicators, social media handles, and web links, helping maintain a safe chatting environment.
+
+Ambassador 
+1. Create Connect Ambassador: On the Person Account record, staff can click the New Connect Ambassador button to create a Connect Ambassador record and send an invitation to the ambassador site.
+2. Ambassador can able to login via person account, will be redirected to the home page, where they can view messages received from students.
+3. Reply to Students: Ambassadors can respond to student messages and continue the conversation through the chat interface.
+4. Profile Update and Approval: Ambassadors can edit their own profiles. Once they submit the changes, an approval request will be sent to the manager or staff. The updated profile will be visible to students only after approval.
+5. Photo Upload and Separate Approval: When an ambassador uploads a profile photo, a separate approval request will be triggered for the photo. The uploaded photo will be displayed to students only after it has been approved.
+

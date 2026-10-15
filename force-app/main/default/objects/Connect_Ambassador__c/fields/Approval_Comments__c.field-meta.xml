@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Approval_Comments__c</fullName>
     <description>Feedback from the ambassador manager when a profile is returned.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Feedback from the ambassador manager when a profile is returned.</inlineHelpText>
     <label>Approval Comments</label>
     <length>1000</length>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>LongTextArea</type>
     <visibleLines>3</visibleLines>
 </CustomField>

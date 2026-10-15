@@ -3,6 +3,22 @@
     <label>Social media or messaging app</label>
     <protected>false</protected>
     <values>
+        <field>Action__c</field>
+        <value xsi:type="xsd:string">Hold</value>
+    </values>
+    <values>
+        <field>Active__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Applies_To__c</field>
+        <value xsi:type="xsd:string">All</value>
+    </values>
+    <values>
+        <field>Message_To_Sender__c</field>
+        <value xsi:type="xsd:string">Please don’t move the conversation to other apps. Keep chats on Launched Connect.</value>
+    </values>
+    <values>
         <field>Pattern__c</field>
         <value xsi:type="xsd:string">\b(insta(gram)?|snap(chat)?|whats ?app|telegram|tik ?tok|discord|wechat|signal app)\b|(^|\s)@\w{3,}</value>
     </values>
@@ -15,23 +31,7 @@
         <value xsi:type="xsd:string">Medium</value>
     </values>
     <values>
-        <field>Action__c</field>
-        <value xsi:type="xsd:string">Hold</value>
-    </values>
-    <values>
-        <field>Applies_To__c</field>
-        <value xsi:type="xsd:string">All</value>
-    </values>
-    <values>
-        <field>Message_To_Sender__c</field>
-        <value xsi:type="xsd:string">Please don’t move the conversation to other apps. Keep chats on Launched Connect.</value>
-    </values>
-    <values>
-        <field>Active__c</field>
-        <value xsi:type="xsd:boolean">true</value>
-    </values>
-    <values>
         <field>Sort_Order__c</field>
-        <value xsi:type="xsd:double">40</value>
+        <value xsi:type="xsd:double">40.0</value>
     </values>
 </CustomMetadata>

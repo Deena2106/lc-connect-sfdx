@@ -90,6 +90,7 @@ public without sharing class LC_ProfileController {
         for (AcademicTerm t : [SELECT Id, Name FROM AcademicTerm WHERE StartDate >= TODAY ORDER BY StartDate LIMIT 20]) {
             ctx.terms.add(new Option(t.Name, t.Id));
         }
+        System.debug('Learning Program --> '+ctx.programmes+ 'Academic--->'+ctx.terms);
         return ctx;
     }
 
@@ -182,4 +183,40 @@ public without sharing class LC_ProfileController {
         Set<String> allowed = new Set<String>{ 'Profile', 'Directory', 'Campaign', 'AI assistant', 'Widget' };
         return allowed.contains(source) ? source : 'Directory';
     }
+    @AuraEnabled
+    public static void saveGuidelinesAcceptance(String version) {
+        if (String.isBlank(version)) {
+            throw new AuraHandledException(
+                'The guidelines version is required.'
+            );
+        }
+        User currentUser = [
+            SELECT ContactId, Contact.AccountId
+            FROM User
+            WHERE Id = :UserInfo.getUserId()
+            LIMIT 1
+        ];
+        if (currentUser.ContactId == null ||
+            currentUser.Contact.AccountId == null) {
+            throw new AuraHandledException(
+                'Unable to find your registration account.'
+            );
+        }
+        Account personAccount = [
+            SELECT Id, IsPersonAccount
+            FROM Account
+            WHERE Id = :currentUser.Contact.AccountId
+            LIMIT 1
+        ];
+        if (!personAccount.IsPersonAccount) {
+            throw new AuraHandledException(
+                'A Person Account is required to save acceptance.'
+            );
+        }
+        personAccount.Guidelines_Accepted__c = true;
+        personAccount.Terms_Accepted_Version__c = version;
+        personAccount.Terms_Accepted_Date__c = System.now();
+        update personAccount;
+    }
+
 }

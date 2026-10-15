@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Connect_Guidelines_Accepted__c</fullName>
     <description>When the guidelines were accepted.</description>
-    <externalId>false</externalId>
     <inlineHelpText>When the guidelines were accepted.</inlineHelpText>
     <label>Connect Guidelines Accepted</label>
     <required>false</required>

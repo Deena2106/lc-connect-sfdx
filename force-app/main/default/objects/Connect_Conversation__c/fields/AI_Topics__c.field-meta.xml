@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>AI_Topics__c</fullName>
     <description>Topics identified by the prompt template.</description>
-    <externalId>false</externalId>
     <inlineHelpText>Topics identified by the prompt template.</inlineHelpText>
     <label>AI Topics</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
     <type>MultiselectPicklist</type>
     <valueSet>
         <restricted>true</restricted>

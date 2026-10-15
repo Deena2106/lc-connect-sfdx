@@ -10,45 +10,60 @@
                 <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
             </template>
 
+            <template lwc:if={showGuidelines}>
+                <c-lc-student-teams-model
+                    onstudentguidelinesaccepted={handleGuidelinesAccepted}>
+                </c-lc-student-teams-model>
+            </template>
+
             <template lwc:if={ready}>
-                <form class="reg__form" onsubmit={handleSubmit}>
-                    <div class="reg__two">
-                        <lightning-input label="First name" name="firstName" value={form.firstName} required maxlength="40" autocomplete="given-name" onchange={handleChange}></lightning-input>
-                        <lightning-input label="Last name" name="lastName" value={form.lastName} required maxlength="80" autocomplete="family-name" onchange={handleChange}></lightning-input>
-                    </div>
-                    <div class="reg__two">
-                        <lightning-combobox label="Country of residence" name="country" value={form.country} options={countryOptions} required onchange={handleChange}></lightning-combobox>
-                        <lightning-input type="date" label="Date of birth" name="birthdate" value={form.birthdate} required max={today} date-style="short" onchange={handleChange}></lightning-input>
-                    </div>
-                    <div class="reg__two">
-                        <lightning-combobox label="I'm interested in" name="programmeId" value={form.programmeId} options={programmeOptions} placeholder="Choose a course" onchange={handleChange}></lightning-combobox>
-                        <lightning-combobox label="When would you start?" name="termId" value={form.termId} options={termOptions} placeholder="Choose a start date" onchange={handleChange}></lightning-combobox>
-                    </div>
+                    <form class="reg__form" onsubmit={handleSubmit}>
+                        <div class="reg__two">
+                            <lightning-input label="First name" name="firstName" value={form.firstName} required maxlength="40" autocomplete="given-name" onchange={handleChange}></lightning-input>
+                            <lightning-input label="Last name" name="lastName" value={form.lastName} required maxlength="80" autocomplete="family-name" onchange={handleChange}></lightning-input>
+                        </div>
+                        <div class="reg__two">
+                            <lightning-combobox label="Country of residence" name="country" value={form.country} options={countryOptions} required onchange={handleChange}></lightning-combobox>
+                            <!-- <lightning-input type="date" label="Date of birth" name="birthdate" value={form.birthdate} required max={today} date-style="short" onchange={handleChange}></lightning-input> -->
+                            <lightning-input
+                                type="date"
+                                label="Date of birth"
+                                name="birthdate"
+                                value={form.birthdate}
+                                required
+                                date-style="short"
+                                onchange={handleChange}>
+                            </lightning-input>
+                        </div>
+                        <div class="reg__two">
+                            <lightning-combobox label="I'm interested in" name="programmeId" value={form.programmeId} options={programmeOptions} placeholder="Choose a course" onchange={handleChange}></lightning-combobox>
+                            <lightning-combobox label="When would you start?" name="termId" value={form.termId} options={termOptions} placeholder="Choose a start date" onchange={handleChange}></lightning-combobox>
+                        </div>
 
-                    <lightning-input
-                        type="checkbox"
-                        name="acceptGuidelines"
-                        label={guidelinesLabel}
-                        checked={form.acceptGuidelines}
-                        required
-                        onchange={handleChange}
-                    ></lightning-input>
-                    <a class="lc-btn lc-btn_link reg__link" href={guidelinesUrl} target="_blank">Read the community guidelines (opens in a new tab)</a>
+                        <!-- <lightning-input
+                            type="checkbox"
+                            name="acceptGuidelines"
+                            label={guidelinesLabel}
+                            checked={form.acceptGuidelines}
+                            required
+                            onchange={handleChange}
+                        ></lightning-input>
+                        <a class="lc-btn lc-btn_link reg__link" href={guidelinesUrl} target="_blank">Read the community guidelines (opens in a new tab)</a> -->
 
-                    <lightning-input
-                        type="checkbox"
-                        name="marketingOptIn"
-                        label={marketingLabel}
-                        checked={form.marketingOptIn}
-                        onchange={handleChange}
-                    ></lightning-input>
+                        <lightning-input
+                            type="checkbox"
+                            name="marketingOptIn"
+                            label={marketingLabel}
+                            checked={form.marketingOptIn}
+                            onchange={handleChange}
+                        ></lightning-input>
 
-                    <template lwc:if={error}>
-                        <p class="lc-error" role="alert">{error}</p>
-                    </template>
+                        <template lwc:if={error}>
+                            <p class="lc-error" role="alert">{error}</p>
+                        </template>
 
-                    <button type="submit" class="lc-btn lc-btn_accent lc-btn_block" disabled={isSaving}>{submitLabel}</button>
-                </form>
+                        <button type="submit" class="lc-btn lc-btn_accent lc-btn_block" disabled={isSaving}>{submitLabel}</button>
+                    </form>
             </template>
         </div>
     </section>
